@@ -27,6 +27,8 @@
     <ClCompile Include="SistemaTemplates.cpp">
       <Filter>Implementacion</Filter>
     </ClCompile>
+    <ClCompile Include="ListaEncadenadaImp.cpp" />
+    <ClCompile Include="NodoLista.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -44,5 +46,7 @@
     <ClInclude Include="ListaOrd.h">
       <Filter>Implementacion\Tads</Filter>
     </ClInclude>
+    <ClInclude Include="ListaEncadenadaImp.h" />
+    <ClInclude Include="NodoLista.h" />
   </ItemGroup>
 </Project>

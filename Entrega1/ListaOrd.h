@@ -9,7 +9,7 @@
 typedef unsigned int nat;
 
 template <class T>
-class ListaOrd abstract : public Iterable<T>
+class ListaOrd abstract //: public Iterable<T>
 {
 public:
 	virtual ~ListaOrd() {}
