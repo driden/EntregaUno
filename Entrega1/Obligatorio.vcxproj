@@ -98,7 +98,6 @@
     <ClCompile Include="CasoDePrueba.cpp" />
     <ClCompile Include="ListaEncadenadaImp.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="NodoLista.cpp" />
     <ClCompile Include="Sistema.cpp" />
     <ClCompile Include="SistemaTemplates.cpp" />
   </ItemGroup>
@@ -107,7 +106,6 @@
     <ClInclude Include="ColaPrioridad.h" />
     <ClInclude Include="ListaEncadenadaImp.h" />
     <ClInclude Include="ListaOrd.h" />
-    <ClInclude Include="NodoLista.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Sistema.h" />
   </ItemGroup>
