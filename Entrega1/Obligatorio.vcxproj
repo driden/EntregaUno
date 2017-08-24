@@ -106,6 +106,7 @@
     <ClInclude Include="ColaPrioridad.h" />
     <ClInclude Include="ListaEncadenadaImp.h" />
     <ClInclude Include="ListaOrd.h" />
+    <ClInclude Include="NodoLista.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Sistema.h" />
   </ItemGroup>

@@ -46,5 +46,6 @@
       <Filter>Implementacion\Tads</Filter>
     </ClInclude>
     <ClInclude Include="ListaEncadenadaImp.h" />
+    <ClInclude Include="NodoLista.h" />
   </ItemGroup>
 </Project>

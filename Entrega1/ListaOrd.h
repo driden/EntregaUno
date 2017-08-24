@@ -9,7 +9,7 @@
 typedef unsigned int nat;
 
 template <class T>
-class ListaOrd abstract //: public Iterable<T>
+class ListaOrd abstract : public Iterable<T>
 {
 public:
 	virtual ~ListaOrd() {}
@@ -45,6 +45,11 @@ public:
 	// PRE: -
 	// POS: Retorna un clon de la lista que no comparte memoria con ella
 	virtual Puntero<ListaOrd<T>> Clon() const abstract;
+
+	// PRE:
+	// POS: Retorna un iterador de la lista
+	virtual Iterador<T> ObtenerIterador() const abstract;
+
 };
 
 
