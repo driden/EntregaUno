@@ -3,6 +3,9 @@
 #include "ConductorPrueba.h"
 #include "Sistema.h"
 
+#include "ListaEncadenadaImp.h"
+#include "Comparador.h"
+
 Puntero<Sistema> Inicializar()
 {
 	return new Sistema();
@@ -10,11 +13,15 @@ Puntero<Sistema> Inicializar()
 
 void main()
 {
-	Puntero<ConductorPrueba> cp = new ConductorPrueba();
+	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
 	Array<Puntero<Prueba>> pruebas = Array<Puntero<Prueba>>(3);
 	pruebas[0] = new PruebaMemoria();
 	pruebas[1] = new CasoDePrueba(Inicializar);
 	pruebas[2] = pruebas[0];
-	cp->CorrerPruebas(pruebas.ObtenerIterador());
+	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
+
+	Comparador<int> comp = Comparador<int>();
+
+	Puntero<ListaOrd<int>> miLista = new ListaEncadenadaImp<int>(comp);
 	system("pause");
 }
