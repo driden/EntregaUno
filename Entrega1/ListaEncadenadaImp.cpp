@@ -5,33 +5,49 @@
 
 
 template<class T>
-ListaEncadenadaImp<T>::ListaEncadenadaImp(const Comparador<T>& comp):
-	lista(nullptr), 
+ListaEncadenadaImp<T>::ListaEncadenadaImp(const Comparador<T>& comp) :
+	lista(nullptr),
 	cantidadElementos(0),
 	comparador(comp),
 	unValor(T())
-{	
+{
 }
 
 template<class T>
 void ListaEncadenadaImp<T>::InsertarOrdenado(const T & e)
 {
 	Puntero<NodoLista<T>> nodo = new NodoLista<T>{ e, nullptr };
-	
+
 	if (lista == nullptr) {
 		lista = nodo;
 	}
 	else {
-		Puntero<NodoLista<T>> iter = lista;
+		// Hay al menos un nodo en la lista
+		Puntero<NodoLista<T>> iter = lista, anterior = lista;
 
-		while (iter->_sig != nullptr) {
+		// Busco hasta que encuentro un elemento menor al que tengo		
+		while (iter->_sig != nullptr && comparador.EsMayor(e, iter->_data)) {
+			anterior = iter;
 			iter = iter->_sig;
 		}
-		
-		iter->_sig = nodo;
 
-		//destruyo iter porque no quiero que quede apuntando a nada
-		iter = nullptr;
+		// Discrimino el caso de que tenga que ir al principio
+		if (iter == anterior) { // Comparacion de punteros
+			lista = nodo;
+			nodo->_sig = iter;
+		}
+		else if (iter->_sig == nullptr && comparador.EsMayor(e, iter->_data)) {
+		
+			// Si iter es el ultimo y 'e' es Mayor que data en iter
+			// entonces 'e' va despues de iter
+			iter->_sig = nodo;
+		}		
+		else if (iter->_sig == nullptr) {
+			// Si el ultimo es menor que 'e' entonces 'e' va al final
+			// Inserto entre el anterior y el siguiente		
+			anterior->_sig = nodo;
+			nodo->_sig = iter;
+		}
 	}
 
 	cantidadElementos++;

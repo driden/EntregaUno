@@ -23,5 +23,11 @@ void main()
 	Comparador<int> comp = Comparador<int>();
 
 	Puntero<ListaOrd<int>> miLista = new ListaEncadenadaImp<int>(comp);
+	miLista->InsertarOrdenado(5);
+	miLista->InsertarOrdenado(4);
+	miLista->InsertarOrdenado(6);
+	miLista->InsertarOrdenado(3);
+	miLista->InsertarOrdenado(2);
+	miLista->InsertarOrdenado(1);
 	system("pause");
 }
