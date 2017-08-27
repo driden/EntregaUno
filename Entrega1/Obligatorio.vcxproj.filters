@@ -28,6 +28,7 @@
       <Filter>Implementacion</Filter>
     </ClCompile>
     <ClCompile Include="ListaEncadenadaImp.cpp" />
+    <ClCompile Include="ListaEncadenadaIteracion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -46,6 +47,6 @@
       <Filter>Implementacion\Tads</Filter>
     </ClInclude>
     <ClInclude Include="ListaEncadenadaImp.h" />
-    <ClInclude Include="NodoLista.h" />
+    <ClInclude Include="ListaEncadenadaIteracion.h" />
   </ItemGroup>
 </Project>

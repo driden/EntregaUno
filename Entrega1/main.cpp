@@ -4,6 +4,7 @@
 #include "Sistema.h"
 
 #include "ListaEncadenadaImp.h"
+#include "ListaEncadenadaIteracion.h"
 #include "Comparador.h"
 
 Puntero<Sistema> Inicializar()
@@ -23,6 +24,7 @@ void main()
 	Comparador<int> comp = Comparador<int>();
 
 	Puntero<ListaOrd<int>> miLista = new ListaEncadenadaImp<int>(comp);
+	cout << "Agrego los numeros 5, 4, 6, 3, 2, 1 a la lista" << endl;
 	miLista->InsertarOrdenado(5);
 	miLista->InsertarOrdenado(4);
 	miLista->InsertarOrdenado(6);
@@ -30,6 +32,13 @@ void main()
 	miLista->InsertarOrdenado(2);
 	miLista->InsertarOrdenado(1);
 
-	cout << "La cabeza de la lista (1) es: " << miLista->Cabeza();
+	Iterador<int> iter = miLista->ObtenerIterador();
+	
+	while (iter.HayElemento()) {
+		cout << iter.ElementoActual() << ", ";
+		iter.Avanzar();
+	}
+
+	cout << endl;
 	system("pause");
 }

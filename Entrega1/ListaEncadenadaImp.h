@@ -2,8 +2,6 @@
 
 #include "ListaOrd.h"
 
-//#include "NodoLista.h"
-
 template <class T>
 class ListaEncadenadaImp :
 	public ListaOrd<T>
@@ -18,8 +16,6 @@ private:
 	Puntero<NodoLista<T>> lista;
 	nat cantidadElementos;
 	Comparador<T> comparador;
-	//TODO: borrar esta linea, es solo auxiliar
-	T unValor;
 
 public:
 	~ListaEncadenadaImp() {}
