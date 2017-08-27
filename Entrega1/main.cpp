@@ -29,5 +29,7 @@ void main()
 	miLista->InsertarOrdenado(3);
 	miLista->InsertarOrdenado(2);
 	miLista->InsertarOrdenado(1);
+
+	cout << "La cabeza de la lista (1) es: " << miLista->Cabeza();
 	system("pause");
 }

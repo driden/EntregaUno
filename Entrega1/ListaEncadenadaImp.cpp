@@ -60,7 +60,7 @@ void ListaEncadenadaImp<T>::InsertarOrdenado(const T & e)
 template<class T>
 const T & ListaEncadenadaImp<T>::Cabeza() const
 {
-	return unValor;
+	return lista->_data;
 }
 
 template<class T>
