@@ -12,6 +12,15 @@ Puntero<Sistema> Inicializar()
 	return new Sistema();
 }
 
+void imprimirLista(Iterador<int>& iter) {
+	while (iter.HayElemento()) {
+		cout << iter.ElementoActual() << ", ";
+		iter.Avanzar();
+	}
+	cout << endl << endl;
+	iter.Reiniciar();
+}
+
 void main()
 {
 	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
@@ -33,12 +42,21 @@ void main()
 	miLista->InsertarOrdenado(1);
 
 	Iterador<int> iter = miLista->ObtenerIterador();
-	
-	while (iter.HayElemento()) {
-		cout << iter.ElementoActual() << ", ";
-		iter.Avanzar();
-	}
+	imprimirLista(iter);
 
-	cout << endl;
+	cout << "Elimino el primero (1)" << endl;
+	miLista->Eliminar(1);
+	imprimirLista(miLista->ObtenerIterador());
+
+	cout << "Elimino el ultimo (6)" << endl;
+	miLista->Eliminar(6);
+	imprimirLista(miLista->ObtenerIterador());
+
+	cout << "Elimino caso generico (3) y (4)" << endl;	
+	miLista->Eliminar(3);
+	miLista->Eliminar(4);
+	imprimirLista(miLista->ObtenerIterador());
+	
 	system("pause");
 }
+

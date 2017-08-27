@@ -65,7 +65,33 @@ const T & ListaEncadenadaImp<T>::Cabeza() const
 template<class T>
 void ListaEncadenadaImp<T>::Eliminar(const T & e)
 {
+	// Tres casos:
+	// Primer Elemento para elminar
+	// Elemento del medio
+	// Ultimo elemento
 
+	Puntero<NodoLista<T>> iter = lista, anterior = lista;
+
+	while (iter && !comparador.SonIguales(e, iter->_data)) {
+		anterior = iter;
+		iter = iter->_sig;
+	}
+
+	// tengo que borrar iter
+	//si son el mismo, es el primero
+	if (iter == anterior) {
+		lista = iter->_sig;				
+	}
+	else if (iter->_sig == nullptr){
+		// es el ultimo
+		anterior->_sig = nullptr;		
+	}
+	else {
+		// caso generico
+		anterior->_sig = anterior->_sig->_sig;
+	}
+	iter = nullptr;
+	cantidadElementos--;
 }
 
 template<class T>
