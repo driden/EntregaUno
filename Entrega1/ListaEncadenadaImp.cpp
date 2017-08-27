@@ -48,6 +48,10 @@ void ListaEncadenadaImp<T>::InsertarOrdenado(const T & e)
 			anterior->_sig = nodo;
 			nodo->_sig = iter;
 		}
+
+		// Clean up
+		anterior = nullptr;
+		iter = nullptr;
 	}
 
 	cantidadElementos++;
