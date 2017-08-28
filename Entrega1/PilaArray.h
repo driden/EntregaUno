@@ -8,9 +8,10 @@ class PilaArray : public Pila<T>
 {
 private:
 	Array<T> arreglo;
-	nat maximo, tope;
+	nat maximo;
+	int tope;
 
-	PilaArray(Array<T> pila, nat max, nat tope);
+	PilaArray(Array<T> pila, nat max, int tope);
 public:
 	~PilaArray() {}
 	PilaArray();
@@ -34,6 +35,8 @@ public:
 
 	//Retorna un clon de la pila que no comparte memoria con ella
 	Puntero<Pila<T>> Clon() const override;
+
+	Iterador<T> ObtenerIterador() const override;
 };
 
 #include "PilaArray.cpp"

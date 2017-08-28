@@ -4,7 +4,7 @@
 #include "PilaArray.h"
 
 template <class T>
-PilaArray<T>::PilaArray(Array<T> pila, nat max, nat top)
+PilaArray<T>::PilaArray(Array<T> pila, nat max, int top)
 {
 	arreglo = pila;
 	maximo = max;
@@ -14,9 +14,9 @@ PilaArray<T>::PilaArray(Array<T> pila, nat max, nat top)
 template <class T>
 PilaArray<T>::PilaArray()
 {
-	arreglo = Array<T>(maximo);
-	tope = 1;
 	maximo = 5;
+	arreglo = Array<T>(maximo);
+	tope = -1;	
 }
 
 template <class T>
@@ -29,7 +29,6 @@ void PilaArray<T>::Push(const T& e)
 		Array<T> nuevoArray = Array<T>(maximo);
 		Array<T>::Copiar(arreglo, nuevoArray, 0);
 
-		arreglo = nullptr;
 		arreglo = nuevoArray;
 	}
 	tope++;
@@ -46,7 +45,7 @@ const T& PilaArray<T>::Top() const
 template <class T>
 void PilaArray<T>::Pop()
 {
-	return arreglo[tope--];
+	tope--;
 }
 
 template <class T>
@@ -71,4 +70,9 @@ Puntero<Pila<T>> PilaArray<T>::Clon() const
 }
 
 
+template <class T>
+Iterador<T> PilaArray<T>::ObtenerIterador() const
+{
+	return nullptr;
+}
 #endif

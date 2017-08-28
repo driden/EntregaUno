@@ -6,6 +6,7 @@
 #include "ListaEncadenadaImp.h"
 #include "ListaEncadenadaIteracion.h"
 #include "Comparador.h"
+#include "PilaArray.h"
 
 Puntero<Sistema> Inicializar()
 {
@@ -66,7 +67,27 @@ void test_lista_encadenada()
 
 void test_pila_array()
 {
+	Puntero<Pila<int>> pila = new PilaArray<int>();
+	std::cout << "Esta vacia la pila ? (Si) " << pila->EstaVacia() << endl;
+
+	std::cout << "Pusheando 1,2,3,4,5 ..." << endl;
+
+	pila->Push(1);
+	pila->Push(2);
+	pila->Push(3);
+	pila->Push(4);
+	pila->Push(5);
+
+	std::cout << "A esta altura la pila deberia estar llena, esta? " << pila->EstaLlena() << endl;
+	std::cout << "Push 6" << endl;
+	pila->Push(6);
+
+	cout << "El top deberia ser 6. Y es:" << pila->Top() << endl;
 	
+	cout << "Clonando la pila." << endl;
+	pila->Clon();
+
+
 }
 
 void main()

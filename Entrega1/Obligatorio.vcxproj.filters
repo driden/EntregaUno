@@ -42,7 +42,6 @@
     <ClCompile Include="PilaArray.cpp">
       <Filter>Implementacion\Tads\Pila</Filter>
     </ClCompile>
-    <ClCompile Include="PilaLista.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -72,6 +71,5 @@
     <ClInclude Include="PilaArray.h">
       <Filter>Implementacion\Tads\Pila</Filter>
     </ClInclude>
-    <ClInclude Include="PilaLista.h" />
   </ItemGroup>
 </Project>
