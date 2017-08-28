@@ -4,9 +4,10 @@
 #include "Sistema.h"
 
 #include "ListaEncadenadaImp.h"
-#include "ListaEncadenadaIteracion.h"
+
 #include "Comparador.h"
 #include "PilaArray.h"
+#include "PilaLista.h"
 
 Puntero<Sistema> Inicializar()
 {
@@ -90,6 +91,32 @@ void test_pila_array()
 
 }
 
+void test_pila_lista()
+{
+	Puntero<Pila<int>> pila = new PilaLista<int>(5);
+
+	std::cout << "Esta vacia la pila ? (Si) " << pila->EstaVacia() << endl;
+
+	std::cout << "Pusheando 1,2,3,4,5 ..." << endl;
+
+	pila->Push(1);
+	pila->Push(2);
+	pila->Push(3);
+	pila->Push(4);
+	pila->Push(5);
+
+	std::cout << "A esta altura la pila deberia estar llena, esta? " << pila->EstaLlena() << endl;
+	std::cout << "Push 6" << endl;
+	pila->Push(6);
+
+	cout << "El top deberia ser 6. Y es:" << pila->Top() << endl;
+
+	cout << "Clonando la pila." << endl;
+	pila->Clon();
+
+
+}
+
 void main()
 {
 	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
@@ -100,8 +127,9 @@ void main()
 	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
 
 	//test_lista_encadenada();
+	//test_pila_array();
+	test_pila_lista();
 
-	test_pila_array();
 	system("pause");
 }
 
