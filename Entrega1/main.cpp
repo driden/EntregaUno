@@ -21,15 +21,8 @@ void imprimirLista(Iterador<int>& iter) {
 	iter.Reiniciar();
 }
 
-void main()
+void test_lista_encadenada()
 {
-	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
-	Array<Puntero<Prueba>> pruebas = Array<Puntero<Prueba>>(3);
-	pruebas[0] = new PruebaMemoria();
-	pruebas[1] = new CasoDePrueba(Inicializar);
-	pruebas[2] = pruebas[0];
-	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
-
 	Comparador<int> comp = Comparador<int>();
 
 	Puntero<ListaOrd<int>> miLista = new ListaEncadenadaImp<int>(comp);
@@ -69,6 +62,25 @@ void main()
 	miLista->Eliminar(2);
 	miLista->Eliminar(5);
 	cout << "Elimino 2 y 5 de miLista, queda vacia?" << miLista->EstaVacia() << endl;
+}
+
+void test_pila_array()
+{
+	
+}
+
+void main()
+{
+	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
+	Array<Puntero<Prueba>> pruebas = Array<Puntero<Prueba>>(3);
+	pruebas[0] = new PruebaMemoria();
+	pruebas[1] = new CasoDePrueba(Inicializar);
+	pruebas[2] = pruebas[0];
+	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
+
+	//test_lista_encadenada();
+
+	test_pila_array();
 	system("pause");
 }
 

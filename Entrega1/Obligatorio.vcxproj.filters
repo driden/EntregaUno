@@ -13,6 +13,12 @@
     <Filter Include="Implementacion\Tads">
       <UniqueIdentifier>{dbba3574-390f-48f9-ac1c-47e7674383f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementacion\Tads\ListaOrdenada">
+      <UniqueIdentifier>{544b0ef7-3657-4746-aa6e-65614a2a33dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementacion\Tads\Pila">
+      <UniqueIdentifier>{fe1e46cb-c097-4547-86cb-594c4a0a3561}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp">
@@ -27,8 +33,16 @@
     <ClCompile Include="SistemaTemplates.cpp">
       <Filter>Implementacion</Filter>
     </ClCompile>
-    <ClCompile Include="ListaEncadenadaImp.cpp" />
-    <ClCompile Include="ListaEncadenadaIteracion.cpp" />
+    <ClCompile Include="ListaEncadenadaImp.cpp">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEncadenadaIteracion.cpp">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClCompile>
+    <ClCompile Include="PilaArray.cpp">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClCompile>
+    <ClCompile Include="PilaLista.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -46,8 +60,18 @@
     <ClInclude Include="ListaOrd.h">
       <Filter>Implementacion\Tads</Filter>
     </ClInclude>
-    <ClInclude Include="ListaEncadenadaImp.h" />
-    <ClInclude Include="ListaEncadenadaIteracion.h" />
-    <ClInclude Include="NodoLista.h" />
+    <ClInclude Include="ListaEncadenadaImp.h">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEncadenadaIteracion.h">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoLista.h">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClInclude>
+    <ClInclude Include="PilaArray.h">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClInclude>
+    <ClInclude Include="PilaLista.h" />
   </ItemGroup>
 </Project>
