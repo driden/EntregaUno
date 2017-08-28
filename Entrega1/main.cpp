@@ -41,8 +41,13 @@ void main()
 	miLista->InsertarOrdenado(2);
 	miLista->InsertarOrdenado(1);
 
+	Puntero<ListaOrd<int>> miClon = miLista->Clon();
+
 	Iterador<int> iter = miLista->ObtenerIterador();
 	imprimirLista(iter);
+
+	cout << "Este es el clon: ";
+	imprimirLista(miClon->ObtenerIterador());
 
 	cout << "Elimino el primero (1)" << endl;
 	miLista->Eliminar(1);
@@ -57,6 +62,13 @@ void main()
 	miLista->Eliminar(4);
 	imprimirLista(miLista->ObtenerIterador());
 	
+	cout << "Obtener(0) = 1 ? " << miClon->Obtener(0) << endl;
+	cout << "Obtener(5) = 6 ? " << miClon->Obtener(5) << endl;
+	cout << "Obtener(2) = 3 ? " << miClon->Obtener(2) << endl;
+	
+	miLista->Eliminar(2);
+	miLista->Eliminar(5);
+	cout << "Elimino 2 y 5 de miLista, queda vacia?" << miLista->EstaVacia() << endl;
 	system("pause");
 }
 

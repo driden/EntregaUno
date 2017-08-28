@@ -1,21 +1,31 @@
 #pragma once
 
 #include "ListaOrd.h"
+#include "NodoLista.h"
 
 template <class T>
 class ListaEncadenadaImp :
 	public ListaOrd<T>
 {
-	template <class T>
+private:
+
+	/*template <class T>
 	struct NodoLista
 	{
 		T _data;
 		Puntero<NodoLista<T>> _sig;
-	};
-private:
+	};*/
+
 	Puntero<NodoLista<T>> lista;
 	nat cantidadElementos;
 	Comparador<T> comparador;
+
+	ListaEncadenadaImp(const Puntero<NodoLista<T>>& aClonar, nat& cantidadElem, Comparador<T> comp);
+
+	// Clona la lista recursivamente
+	// PRE:
+	// POST: se genera una copia de la lista aClonar en memoria
+	typename Puntero<NodoLista<T>> ListaEncadenadaImp<T>::ClonRecursivo(const Puntero<NodoLista<T>>& aClonar, nat& cantidadElem) const;
 
 public:
 	~ListaEncadenadaImp() {}
@@ -38,7 +48,7 @@ public:
 
 	Puntero<ListaOrd<T>> Clon() const override;
 
-	Iterador<T> ObtenerIterador() const override;
+	Iterador<T> ObtenerIterador() const override;	
 };
 
 #include "ListaEncadenadaImp.cpp"

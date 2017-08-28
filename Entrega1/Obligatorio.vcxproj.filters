@@ -48,5 +48,6 @@
     </ClInclude>
     <ClInclude Include="ListaEncadenadaImp.h" />
     <ClInclude Include="ListaEncadenadaIteracion.h" />
+    <ClInclude Include="NodoLista.h" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,14 @@ ListaEncadenadaImp<T>::ListaEncadenadaImp(const Comparador<T>& comp) :
 }
 
 template<class T>
+ListaEncadenadaImp<T>::ListaEncadenadaImp(const Puntero<NodoLista<T>>& aClonar, nat& cantidadElem, Comparador<T> comp) :
+	lista(aClonar),
+	cantidadElementos(cantidadElem),
+	comparador(comp)
+{
+}
+
+template<class T>
 void ListaEncadenadaImp<T>::InsertarOrdenado(const T & e)
 {
 	Puntero<NodoLista<T>> nodo = new NodoLista<T>{ e, nullptr };
@@ -80,11 +88,11 @@ void ListaEncadenadaImp<T>::Eliminar(const T & e)
 	// tengo que borrar iter
 	//si son el mismo, es el primero
 	if (iter == anterior) {
-		lista = iter->_sig;				
+		lista = iter->_sig;
 	}
-	else if (iter->_sig == nullptr){
+	else if (iter->_sig == nullptr) {
 		// es el ultimo
-		anterior->_sig = nullptr;		
+		anterior->_sig = nullptr;
 	}
 	else {
 		// caso generico
@@ -105,18 +113,32 @@ const T & ListaEncadenadaImp<T>::Obtener(const nat n) const
 {
 	nat pos = 0;
 	Puntero<NodoLista<T>> iter = lista;
-	while (pos < n) { 
-		iter = iter->_sig; 
+	while (pos < n) {
+		iter = iter->_sig;
 		pos++;
 	}
-
-	return iter->_data;
+	T& dato = iter->_data;
+	iter = nullptr;
+	return dato;
 }
 
 template<class T>
 bool ListaEncadenadaImp<T>::Pertenece(const T & e) const
 {
-	return false;
+	bool pertenece = false;
+	Puntero<NodoLista<T>> iter = lista;
+	nat pos = 0;
+	while (pos < cantidadElementos) {
+
+		if (comparador.SonIguales(iter->_data, e))
+			pertenece = true;
+
+		iter = iter->_sig;
+		pos++;
+	}
+
+	iter = nullptr;
+	return pertenece;
 }
 
 template<class T>
@@ -126,9 +148,29 @@ bool ListaEncadenadaImp<T>::EstaVacia() const
 }
 
 template<class T>
+Puntero<NodoLista<T>> ListaEncadenadaImp<T>::ClonRecursivo(const Puntero<NodoLista<T>>& aClonar, nat& cantidadElem) const
+{
+	if (aClonar == nullptr) {
+		return nullptr;
+	}
+
+	cantidadElem++;
+	Puntero<NodoLista<T>> nodo = new NodoLista<T>{ aClonar->_data, ClonRecursivo(aClonar->_sig, cantidadElem) };
+
+	return nodo;
+}
+
+template<class T>
 Puntero<ListaOrd<T>> ListaEncadenadaImp<T>::Clon() const
 {
-	return Puntero<ListaOrd<T>>();
+	Puntero<NodoLista<T>> iter = lista;
+	nat cantidad = 0;
+	Puntero<NodoLista<T>> copia = ClonRecursivo(iter, cantidad);
+
+	iter = nullptr;
+
+	Puntero<ListaOrd<T>> copiaLista = new ListaEncadenadaImp<T>(copia, cantidad, comparador);
+	return copiaLista;
 }
 
 template<class T>
