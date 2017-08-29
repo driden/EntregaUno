@@ -132,13 +132,50 @@ void test_pila_iterador_lista()
 	Iterador<int> iter = pila->ObtenerIterador();
 
 	std::cout << "Popping el stack..." << endl;;
-	while (iter.HayElemento())
-	{
-		std::cout << iter.ElementoActual() << ", ";
-		iter.Avanzar();
-	}
+	imprimirLista(iter);
+
+	std::cout << "Top = 5? " << pila->Top() << endl;
+
+	pila->Pop();
+	std::cout << "Pop 5, Top = 4?" << pila->Top() << endl;
+
+	pila->Pop(); //4
+	pila->Pop(); //3
+	pila->Pop(); //2
+	pila->Pop(); //1
+
+	std::cout << "Popped todo, esta vacia la pila? si" << pila->EstaVacia() << endl;;
 }
 
+void test_pila_iterador_array()
+{
+	Puntero<Pila<int>> pila = new PilaArray<int>(5);
+	std::cout << "Pusheando 1,2,3,4,5 ..." << endl;
+
+	pila->Push(1);
+	pila->Push(2);
+	pila->Push(3);
+	pila->Push(4);
+	pila->Push(5);
+
+	std::cout << "Esta llena la pila? (si) " << pila->EstaLlena() << endl;;
+	Iterador<int> iter = pila->ObtenerIterador();
+
+	std::cout << "Popping el stack..." << endl;
+	imprimirLista(iter);
+
+	std::cout << "Top = 5? " << pila->Top() << endl;
+	
+	pila->Pop();
+	std::cout << "Pop 5, Top = 4?" << pila->Top() << endl;
+
+	pila->Pop(); //4
+	pila->Pop(); //3
+	pila->Pop(); //2
+	pila->Pop(); //1
+
+	std::cout << "Popped todo, esta vacia la pila? si" << pila->EstaVacia() << endl;;
+}
 
 void main()
 {
@@ -152,7 +189,8 @@ void main()
 	// test_lista_encadenada();
 	// test_pila_array();
 	// test_pila_lista();
-	test_pila_iterador_lista();
+	// test_pila_iterador_lista();
+	test_pila_iterador_array();
 	system("pause");
 }
 

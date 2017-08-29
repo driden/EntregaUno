@@ -16,9 +16,19 @@ PilaArray<T>::PilaArray(Array<T> pila, nat max, int top)
 template <class T>
 PilaArray<T>::PilaArray(const PilaArray<T>& pilaArray)
 {
-	Array<T>::Copiar(pilaArray.arreglo, arreglo,0);
 	maximo = pilaArray.maximo;
+	arreglo = Array<T>(maximo);
 	tope = pilaArray.tope;
+	
+	Array<T>::Copiar(pilaArray.arreglo, arreglo,0);	
+}
+
+template <class T>
+PilaArray<T>::PilaArray(nat max)
+{
+	arreglo = Array<T>(max);
+	maximo = max;
+	tope = -1;
 }
 
 template <class T>

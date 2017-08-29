@@ -16,6 +16,7 @@ public:
 	~PilaArray() {}
 	PilaArray();
 	PilaArray(const PilaArray<T> &pilaArray);
+	PilaArray(nat max);
 	// Coloca el elemento e en el tope
 	void Push(const T& e) override;
 
