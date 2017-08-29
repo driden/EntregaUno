@@ -77,7 +77,7 @@ void ListaEncadenadaImp<T>::Eliminar(const T & e)
 	// Primer Elemento para elminar
 	// Elemento del medio
 	// Ultimo elemento
-
+	// No esta
 	Puntero<NodoLista<T>> iter = lista, anterior = lista;
 
 	while (iter && !comparador.SonIguales(e, iter->_data)) {
@@ -87,19 +87,23 @@ void ListaEncadenadaImp<T>::Eliminar(const T & e)
 
 	// tengo que borrar iter
 	//si son el mismo, es el primero
-	if (iter == anterior) {
+	if (iter && (iter == anterior)) {
 		lista = iter->_sig;
 	}
-	else if (iter->_sig == nullptr) {
+	else if (iter && iter->_sig == nullptr) {
 		// es el ultimo
 		anterior->_sig = nullptr;
 	}
-	else {
+	else if (iter){
 		// caso generico
 		anterior->_sig = anterior->_sig->_sig;
 	}
-	iter = nullptr;
-	cantidadElementos--;
+	// Si no encontre
+	if (iter != nullptr)
+	{
+		iter = nullptr;
+		cantidadElementos--;
+	}	
 }
 
 template<class T>

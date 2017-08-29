@@ -76,6 +76,12 @@ void test_lista_encadenada()
 	
 	Iterador<int> itRepetido = listaRepetida->ObtenerIterador();
 	imprimirLista(itRepetido);
+
+	std::cout << endl << endl<< "Elimino el 3 y el 1, el 1 no esta. res = (2,3,4,5) = ";
+	listaRepetida->Eliminar(3);
+	listaRepetida->Eliminar(1);
+	auto it2 = listaRepetida->ObtenerIterador();
+	imprimirLista(it2);
 }
 
 void test_pila_array()
