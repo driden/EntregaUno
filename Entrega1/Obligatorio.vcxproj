@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp" />
+    <ClCompile Include="ColaPrioridadLista.cpp" />
     <ClCompile Include="ListaEncadenadaImp.cpp" />
     <ClCompile Include="ListaEncadenadaIteracion.cpp" />
     <ClCompile Include="main.cpp" />
@@ -108,6 +109,7 @@
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h" />
     <ClInclude Include="ColaPrioridad.h" />
+    <ClInclude Include="ColaPrioridadLista.h" />
     <ClInclude Include="ListaEncadenadaImp.h" />
     <ClInclude Include="ListaEncadenadaIteracion.h" />
     <ClInclude Include="ListaOrd.h" />

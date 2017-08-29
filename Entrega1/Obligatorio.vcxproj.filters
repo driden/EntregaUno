@@ -19,6 +19,9 @@
     <Filter Include="Implementacion\Tads\Pila">
       <UniqueIdentifier>{fe1e46cb-c097-4547-86cb-594c4a0a3561}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementacion\Tads\ColaPrioridad">
+      <UniqueIdentifier>{63737e12-fc80-4da5-8487-c6daec26b722}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp">
@@ -48,6 +51,9 @@
     <ClCompile Include="PilaIteracion.cpp">
       <Filter>Implementacion\Tads\Pila</Filter>
     </ClCompile>
+    <ClCompile Include="ColaPrioridadLista.cpp">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -55,15 +61,6 @@
     </ClInclude>
     <ClInclude Include="Sistema.h">
       <Filter>Implementacion</Filter>
-    </ClInclude>
-    <ClInclude Include="Pila.h">
-      <Filter>Implementacion\Tads</Filter>
-    </ClInclude>
-    <ClInclude Include="ColaPrioridad.h">
-      <Filter>Implementacion\Tads</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaOrd.h">
-      <Filter>Implementacion\Tads</Filter>
     </ClInclude>
     <ClInclude Include="ListaEncadenadaImp.h">
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
@@ -82,6 +79,18 @@
     </ClInclude>
     <ClInclude Include="PilaIteracion.h">
       <Filter>Implementacion\Tads\Pila</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaOrd.h">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClInclude>
+    <ClInclude Include="Pila.h">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClInclude>
+    <ClInclude Include="ColaPrioridad.h">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
+    </ClInclude>
+    <ClInclude Include="ColaPrioridadLista.h">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

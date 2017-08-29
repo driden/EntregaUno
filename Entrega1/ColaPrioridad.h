@@ -49,6 +49,10 @@ public:
 	// PRE: -
 	// POS: Retorna un clon de la cola que no comparte memoria con ella
 	virtual Puntero<ColaPrioridad<T, P>> Clon() const abstract;
+
+	// Retorna un nuevo iterador sobre la estructura
+	// Postcondición: El iterador se encuentra reiniciado
+	virtual Iterador<T> ObtenerIterador() const abstract;
 };
 
 

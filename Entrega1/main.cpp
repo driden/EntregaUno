@@ -65,6 +65,17 @@ void test_lista_encadenada()
 	miLista->Eliminar(2);
 	miLista->Eliminar(5);
 	cout << "Elimino 2 y 5 de miLista, queda vacia?" << miLista->EstaVacia() << endl;
+
+	std::cout << "Nueva lista, 3, es elemento repetido (2,3,3,4,5)" << endl;
+	Puntero<ListaOrd<int>> listaRepetida = new ListaEncadenadaImp<int>(comp);
+	listaRepetida->InsertarOrdenado(5);
+	listaRepetida->InsertarOrdenado(4);
+	listaRepetida->InsertarOrdenado(3);
+	listaRepetida->InsertarOrdenado(2);
+	listaRepetida->InsertarOrdenado(3);
+	
+	Iterador<int> itRepetido = listaRepetida->ObtenerIterador();
+	imprimirLista(itRepetido);
 }
 
 void test_pila_array()
@@ -186,11 +197,11 @@ void main()
 	pruebas[2] = pruebas[0];
 	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
 
-	// test_lista_encadenada();
+	 test_lista_encadenada();
 	// test_pila_array();
 	// test_pila_lista();
 	// test_pila_iterador_lista();
-	test_pila_iterador_array();
+	// test_pila_iterador_array();
 	system("pause");
 }
 

@@ -49,7 +49,7 @@ void ListaEncadenadaImp<T>::InsertarOrdenado(const T & e)
 			// entonces 'e' va despues de iter
 			iter->_sig = nodo;
 		}
-		else if (iter->_sig == nullptr) {
+		else if (iter->_sig == nullptr || comparador.SonIguales(e,iter->_data)) {
 			// Si el ultimo es menor que 'e' entonces 'e' va al final
 			// Inserto entre el anterior y el siguiente		
 			anterior->_sig = nodo;
