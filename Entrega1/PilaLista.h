@@ -10,7 +10,7 @@ private:
 	Puntero < NodoLista<T>> stack;
 	nat cantidadElementos, capacidad;
 	
-	PilaLista(Puntero<NodoLista<T>> stack, nat cantidadElementos, nat capacidad);
+	PilaLista(Puntero<NodoLista<T>> pila, nat elementos, nat max);
 
 	//Clona la lista que modela el stack
 	// PRE
@@ -20,7 +20,7 @@ public:
 	~PilaLista() {};
 	
 	PilaLista(nat capacidad);
-
+	PilaLista(const PilaLista<T> &pilaLista);
 	// Coloca el elemento e en el tope
 	void Push(const T& e) override;
 

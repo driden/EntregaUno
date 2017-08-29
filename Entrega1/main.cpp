@@ -8,6 +8,7 @@
 #include "Comparador.h"
 #include "PilaArray.h"
 #include "PilaLista.h"
+#include "PilaIteracion.h"
 
 Puntero<Sistema> Inicializar()
 {
@@ -117,6 +118,28 @@ void test_pila_lista()
 
 }
 
+void test_pila_iterador_lista()
+{
+	Puntero<Pila<int>> pila = new PilaLista<int>(5);
+	std::cout << "Pusheando 1,2,3,4,5 ..." << endl;
+
+	pila->Push(1);
+	pila->Push(2);
+	pila->Push(3);
+	pila->Push(4);
+	pila->Push(5);
+
+	Iterador<int> iter = pila->ObtenerIterador();
+
+	std::cout << "Popping el stack..." << endl;;
+	while (iter.HayElemento())
+	{
+		std::cout << iter.ElementoActual() << ", ";
+		iter.Avanzar();
+	}
+}
+
+
 void main()
 {
 	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
@@ -126,10 +149,10 @@ void main()
 	pruebas[2] = pruebas[0];
 	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
 
-	//test_lista_encadenada();
-	//test_pila_array();
-	test_pila_lista();
-
+	// test_lista_encadenada();
+	// test_pila_array();
+	// test_pila_lista();
+	test_pila_iterador_lista();
 	system("pause");
 }
 

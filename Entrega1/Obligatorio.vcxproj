@@ -100,6 +100,7 @@
     <ClCompile Include="ListaEncadenadaIteracion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PilaArray.cpp" />
+    <ClCompile Include="PilaIteracion.cpp" />
     <ClCompile Include="PilaLista.cpp" />
     <ClCompile Include="Sistema.cpp" />
     <ClCompile Include="SistemaTemplates.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="NodoLista.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="PilaArray.h" />
+    <ClInclude Include="PilaIteracion.h" />
     <ClInclude Include="PilaLista.h" />
     <ClInclude Include="Sistema.h" />
   </ItemGroup>

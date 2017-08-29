@@ -12,11 +12,21 @@ PilaLista<T>::PilaLista(nat capacidad)
 }
 
 template <class T>
-PilaLista<T>::PilaLista(Puntero<NodoLista<T>> stack, nat cantidadElementos, nat capacidad)
+PilaLista<T>::PilaLista(const PilaLista<T>& pilaLista)
 {
-	this->stack = stack;
-	this->cantidadElementos = cantidadElementos;
-	this->capacidad = capacidad;
+	// Copia de la lista
+	Puntero<NodoLista<T> > copiaStack = ClonRecursivo(pilaLista.stack);
+	stack = copiaStack;
+	cantidadElementos = pilaLista.cantidadElementos;
+	capacidad = pilaLista.capacidad;
+}
+
+template <class T>
+PilaLista<T>::PilaLista(Puntero<NodoLista<T>> pila, nat elementos, nat max)
+{
+	stack = pila;
+	cantidadElementos = elementos;
+	capacidad = max;
 }
 
 template <class T>
@@ -79,6 +89,6 @@ Puntero<NodoLista<T>> PilaLista<T>::ClonRecursivo(const Puntero<NodoLista<T>>& a
 template <class T>
 Iterador<T> PilaLista<T>::ObtenerIterador() const
 {
-	return nullptr;
+	return new PilaIteracion<T>(*this);
 }
 #endif

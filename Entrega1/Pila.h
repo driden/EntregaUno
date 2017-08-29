@@ -31,6 +31,10 @@ public:
 	
 	//Retorna un clon de la pila que no comparte memoria con ella
 	virtual Puntero<Pila<T>> Clon() const abstract;
+
+	// PRE:
+	// POS: Retorna un iterador de la pila
+	Iterador<T> ObtenerIterador() const abstract;
 };
 
 

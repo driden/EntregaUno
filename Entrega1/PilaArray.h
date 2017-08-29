@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-#include "Pila.h"
 #include "Array.h"
+#include "Pila.h"
 
 template <class T>
 class PilaArray : public Pila<T>
@@ -11,11 +11,11 @@ private:
 	nat maximo;
 	int tope;
 
-	PilaArray(Array<T> pila, nat max, int tope);
+	PilaArray(Array<T> pila, nat max, int tope);	
 public:
 	~PilaArray() {}
 	PilaArray();
-
+	PilaArray(const PilaArray<T> &pilaArray);
 	// Coloca el elemento e en el tope
 	void Push(const T& e) override;
 

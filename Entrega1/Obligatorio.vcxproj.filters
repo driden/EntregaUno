@@ -42,7 +42,12 @@
     <ClCompile Include="PilaArray.cpp">
       <Filter>Implementacion\Tads\Pila</Filter>
     </ClCompile>
-    <ClCompile Include="PilaLista.cpp" />
+    <ClCompile Include="PilaLista.cpp">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClCompile>
+    <ClCompile Include="PilaIteracion.cpp">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -72,6 +77,11 @@
     <ClInclude Include="PilaArray.h">
       <Filter>Implementacion\Tads\Pila</Filter>
     </ClInclude>
-    <ClInclude Include="PilaLista.h" />
+    <ClInclude Include="PilaLista.h">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClInclude>
+    <ClInclude Include="PilaIteracion.h">
+      <Filter>Implementacion\Tads\Pila</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
