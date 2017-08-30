@@ -100,6 +100,7 @@
     <ClCompile Include="ListaEncadenadaImp.cpp" />
     <ClCompile Include="ListaEncadenadaIteracion.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NodoPQueue.cpp" />
     <ClCompile Include="PilaArray.cpp" />
     <ClCompile Include="PilaIteracion.cpp" />
     <ClCompile Include="PilaLista.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="ListaEncadenadaIteracion.h" />
     <ClInclude Include="ListaOrd.h" />
     <ClInclude Include="NodoLista.h" />
+    <ClInclude Include="NodoPQueue.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="PilaArray.h" />
     <ClInclude Include="PilaIteracion.h" />

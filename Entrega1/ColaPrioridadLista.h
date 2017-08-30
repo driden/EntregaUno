@@ -1,13 +1,21 @@
 #pragma once
 #include "ColaPrioridad.h"
+#include "ListaOrd.h"
+#include "NodoPQueue.h"
 
 template <class T, class P>
 class ColaPrioridadLista : ColaPrioridad<T,P>
 {
 private:
+	Puntero<ListaOrd<NodoPQueue<T,P>>> pQueue;
+	Comparador<T> compDato;
+	nat maximaCantidad;
 
+	NodoPQueue<T, P> Buscar(const T &elem);
+	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato, nat max);
 public:
 	~ColaPrioridadLista(){}
+	ColaPrioridadLista(const Comparador<P> &compPrioridad, const Comparador<T> comparadorDato, nat max);
 
 	// PRE: -
 	// POS: Encola el elemento e con prioridad p
@@ -49,4 +57,5 @@ public:
 	// Postcondición: El iterador se encuentra reiniciado
 	Iterador<T> ObtenerIterador() const override;
 };
+
 #include "ColaPrioridadLista.cpp"

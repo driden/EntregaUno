@@ -48,8 +48,7 @@ public:
 
 	// PRE:
 	// POS: Retorna un iterador de la lista
-	virtual Iterador<T> ObtenerIterador() const abstract;
-
+	virtual Iterador<T> ObtenerIterador() const abstract;	
 };
 
 

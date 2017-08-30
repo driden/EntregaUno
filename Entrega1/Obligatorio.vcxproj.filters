@@ -54,6 +54,9 @@
     <ClCompile Include="ColaPrioridadLista.cpp">
       <Filter>Implementacion\Tads\ColaPrioridad</Filter>
     </ClCompile>
+    <ClCompile Include="NodoPQueue.cpp">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -90,6 +93,9 @@
       <Filter>Implementacion\Tads\ColaPrioridad</Filter>
     </ClInclude>
     <ClInclude Include="ColaPrioridadLista.h">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
+    </ClInclude>
+    <ClInclude Include="NodoPQueue.h">
       <Filter>Implementacion\Tads\ColaPrioridad</Filter>
     </ClInclude>
   </ItemGroup>
