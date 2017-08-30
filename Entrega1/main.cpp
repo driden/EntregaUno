@@ -9,6 +9,7 @@
 #include "PilaArray.h"
 #include "PilaLista.h"
 #include "PilaIteracion.h"
+#include "ColaIteracion.h"
 
 Puntero<Sistema> Inicializar()
 {
@@ -194,6 +195,13 @@ void test_pila_iterador_array()
 	std::cout << "Popped todo, esta vacia la pila? si" << pila->EstaVacia() << endl;;
 }
 
+void test_pqueue_lista()
+{
+	Comparador<int> comp = Comparador<int>();
+	Comparador<int> comp2 = Comparador<int>();
+	Puntero<ColaPrioridad<int, int>> pQueue = new ColaPrioridadLista<int, int>(25,comp, comp2);
+}
+
 void main()
 {
 	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
@@ -203,11 +211,12 @@ void main()
 	pruebas[2] = pruebas[0];
 	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
 
-	 test_lista_encadenada();
+	// test_lista_encadenada();
 	// test_pila_array();
 	// test_pila_lista();
 	// test_pila_iterador_lista();
 	// test_pila_iterador_array();
+	test_pqueue_lista();
 	system("pause");
 }
 

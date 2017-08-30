@@ -4,18 +4,22 @@
 #include "NodoPQueue.h"
 
 template <class T, class P>
-class ColaPrioridadLista : ColaPrioridad<T,P>
+class ColaPrioridadLista : public ColaPrioridad<T,P>
 {
 private:
-	Puntero<ListaOrd<NodoPQueue<T,P>>> pQueue;
+	Puntero<ListaOrd<NodoPQueue<T, P>>> pQueue;
 	Comparador<T> compDato;
 	nat maximaCantidad;
+	
 
-	NodoPQueue<T, P> Buscar(const T &elem);
-	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato, nat max);
+
+	NodoPQueue<T, P>& Buscar(const T &elem);
+	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, const Comparador<T> &comparadorDato, nat max);
 public:
 	~ColaPrioridadLista(){}
-	ColaPrioridadLista(const Comparador<P> &compPrioridad, const Comparador<T> comparadorDato, nat max);
+	ColaPrioridadLista(nat max,
+		const Comparador<P> &compPrioridad = Comparador<P>::Default,
+		const Comparador<T> &comparadorDato = Comparador<T>::Default);
 
 	// PRE: -
 	// POS: Encola el elemento e con prioridad p

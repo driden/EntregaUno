@@ -57,6 +57,10 @@
     <ClCompile Include="NodoPQueue.cpp">
       <Filter>Implementacion\Tads\ColaPrioridad</Filter>
     </ClCompile>
+    <ClCompile Include="ColaIteracion.cpp">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
+    </ClCompile>
+    <ClCompile Include="ComparadorNodoPQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CasoDePrueba.h">
@@ -98,5 +102,9 @@
     <ClInclude Include="NodoPQueue.h">
       <Filter>Implementacion\Tads\ColaPrioridad</Filter>
     </ClInclude>
+    <ClInclude Include="ColaIteracion.h">
+      <Filter>Implementacion\Tads\ColaPrioridad</Filter>
+    </ClInclude>
+    <ClInclude Include="ComparadorNodoPQueue.h" />
   </ItemGroup>
 </Project>

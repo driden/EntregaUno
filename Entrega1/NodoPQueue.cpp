@@ -7,17 +7,17 @@ template <class T, class P>
 NodoPQueue<T, P>::NodoPQueue(const T& elem, const P& prio)	
 {
 	elemento = elem;
-	prioridad = prio;
+	prioridad = prio;	
 }
 
 template <class T, class P>
-T& NodoPQueue<T, P>::GetElemento()
+T& NodoPQueue<T, P>::GetElemento() const
 {
 	return elemento;
 }
 
 template <class T, class P>
-P& NodoPQueue<T, P>::GetPrioridad()
+P& NodoPQueue<T, P>::GetPrioridad() const
 {
 	return prioridad;
 }

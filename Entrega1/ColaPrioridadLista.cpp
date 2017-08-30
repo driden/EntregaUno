@@ -1,3 +1,4 @@
+#include "ComparadorNodoPQueue.h"
 #ifndef COLAPRIORIDADLISTA_CPP
 #define COLAPRIORIDADLISTA_CPP
 
@@ -5,21 +6,22 @@
 #include "ListaEncadenadaImp.h"
 
 template <class T, class P>
-NodoPQueue<T, P> ColaPrioridadLista<T, P>::Buscar(const T& elem)
+NodoPQueue<T, P>& ColaPrioridadLista<T, P>::Buscar(const T& elem)
 {
-	Iterador<ListaOrd<NodoPQueue<T, P>>> iter = pQueue->ObtenerIterador();
+	Iterador<NodoPQueue<T, P>> iter = pQueue->ObtenerIterador();
 	
 	while (iter.HayElemento() && compDato.SonDistintos(elem,iter.ElementoActual()))
 	{
 		iter.Avanzar();
 	}
 
-	return iter.ElementoActual();
+	NodoPQueue<T, P> nodo = iter.ElementoActual();
+
+	return nodo;
 }
 
 template <class T, class P>
-ColaPrioridadLista<T, P>::ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato,
-	nat max)
+ColaPrioridadLista<T, P>::ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, const Comparador<T> &comparadorDato,nat max)
 {
 	pQueue = cola;
 	compDato = comparadorDato;
@@ -27,13 +29,17 @@ ColaPrioridadLista<T, P>::ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>>
 }
 
 template <class T, class P>
-ColaPrioridadLista<T, P>::ColaPrioridadLista(const Comparador<P> &compPrioridad, const Comparador<T> comparadorDato, nat max)	
+ColaPrioridadLista<T, P>::ColaPrioridadLista(
+	nat max,
+	const Comparador<P> &compPrioridad = Comparador<P>::Default, 
+	const Comparador<T> &comparadorDato = Comparador<T>::Default)
 {
-	pQueue = new ListaEncadenadaImp<NodoPQueue<T, P>>(compPrioridad);
+	ComparadorNodoPQueue<T,P> compNodo = ComparadorNodoPQueue<T,P>(compPrioridad);
+	pQueue = new ListaEncadenadaImp<NodoPQueue<T, P>>(compNodo);
+
 	compDato = comparadorDato;
 	maximaCantidad = max;
 }
-
 
 template <class T, class P>
 void ColaPrioridadLista<T, P>::Encolar(const T& e, const P& p)
@@ -45,30 +51,48 @@ void ColaPrioridadLista<T, P>::Encolar(const T& e, const P& p)
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::Desencolar()
 {
-	NodoPQueue<T, P> nodo = pQueue->Obtener(0);
-	T valor = nodo.GetElemento();
-	pQueue->Eliminar(valor);
-	return valor;
+	//NodoPQueue<T, P> nodo = Buscar(0);
+	//T valor = nodo.GetElemento();
+	//pQueue->Eliminar(valor);
+	//return valor;
+	return T();
 }
 
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::Cabeza() const
 {
-	return pQueue->Cabeza();
+	NodoPQueue<T, P> nodo = (pQueue->Cabeza());
+	T valor = nodo.GetElemento();
+	return  valor;
 }
 
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::ObtenerPrioridad(const T& e) const
 {
-	NodoPQueue<T, P> nodo = Buscar(e);
-	T prioridad = nodo.GetPrioridad();
-	return prioridad;
+	/*NodoPQueue<T, P>& nodo = nullptr;
+	nodo = Buscar(e);
+	T &elem = nodo.GetElemento();
+	return elem;*/
+	return T();
 }
 
 template <class T, class P>
 bool ColaPrioridadLista<T, P>::Pertenece(const T& e) const
 {
-	return pQueue->Pertenece(e);
+	Iterador<NodoPQueue<T, P>> iter = pQueue->ObtenerIterador();
+	
+	bool pertenece = false;
+	
+	while (iter.HayElemento() && !pertenece)
+	{
+		iter.Avanzar();
+		NodoPQueue<T, P> actual = iter.ElementoActual();
+		T t = actual.GetElemento();
+		pertenece = compDato.SonDistintos(e,t);
+	}
+
+	return pertenece;
+	
 }
 
 template <class T, class P>
@@ -87,13 +111,16 @@ template <class T, class P>
 Puntero<ColaPrioridad<T, P>> ColaPrioridadLista<T, P>::Clon() const
 {
 	Puntero<ListaOrd<NodoPQueue<T, P>>> cola = pQueue->Clon();
-	return new ColaPrioridadLista(cola,compDato,maximaCantidad);
+	Puntero<ColaPrioridad<T,P>> retorno = new ColaPrioridadLista(cola, compDato, maximaCantidad);
+	return retorno;
 }
 
 template <class T, class P>
 Iterador<T> ColaPrioridadLista<T, P>::ObtenerIterador() const
 {
-	return nullptr;
+	Puntero<ListaOrd<NodoPQueue<T, P>>> cola = pQueue->Clon();
+
+	return new ColaIteracion<T,P>(cola);
 }
 
 template <class T, class P>
