@@ -1,7 +1,7 @@
-#include "ComparadorNodoPQueue.h"
 #ifndef COLAPRIORIDADLISTA_CPP
 #define COLAPRIORIDADLISTA_CPP
 
+#include "ComparadorNodoPQueue.h"
 #include "ColaPrioridadLista.h"
 #include "ListaEncadenadaImp.h"
 
@@ -62,9 +62,7 @@ const T& ColaPrioridadLista<T, P>::Desencolar()
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::Cabeza() const
 {
-	NodoPQueue<T, P> nodo = (pQueue->Cabeza());
-	T valor = nodo.GetElemento();
-	return  valor;
+	return pQueue->Cabeza().GetElemento();	
 }
 
 template <class T, class P>
