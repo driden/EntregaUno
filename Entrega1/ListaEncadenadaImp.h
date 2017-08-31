@@ -8,14 +8,6 @@ class ListaEncadenadaImp :
 	public ListaOrd<T>
 {
 private:
-
-	/*template <class T>
-	struct NodoLista
-	{
-		T _data;
-		Puntero<NodoLista<T>> _sig;
-	};*/
-
 	Puntero<NodoLista<T>> lista;
 	nat cantidadElementos;
 	Comparador<T> comparador;
