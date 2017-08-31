@@ -99,6 +99,7 @@
     <ClCompile Include="ColaIteracion.cpp" />
     <ClCompile Include="ColaPrioridadLista.cpp" />
     <ClCompile Include="ComparadorNodoPQueue.cpp" />
+    <ClCompile Include="ListaArrayImp.cpp" />
     <ClCompile Include="ListaEncadenadaImp.cpp" />
     <ClCompile Include="ListaEncadenadaIteracion.cpp" />
     <ClCompile Include="main.cpp" />
@@ -115,6 +116,7 @@
     <ClInclude Include="ColaPrioridad.h" />
     <ClInclude Include="ColaPrioridadLista.h" />
     <ClInclude Include="ComparadorNodoPQueue.h" />
+    <ClInclude Include="ListaArrayImp.h" />
     <ClInclude Include="ListaEncadenadaImp.h" />
     <ClInclude Include="ListaEncadenadaIteracion.h" />
     <ClInclude Include="ListaOrd.h" />
