@@ -19,9 +19,7 @@ bool ColaIteracion<T, P>::HayElemento() const
 template <class T, class P>
 const T& ColaIteracion<T, P>::ElementoActual() const
 {
-	NodoPQueue<T, P> nodo = colaIter.ElementoActual();
-	T t = nodo.GetElemento();
-	return t;
+	return colaIter.ElementoActual();	
 }
 
 template <class T, class P>

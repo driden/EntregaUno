@@ -5,7 +5,7 @@
 #include "ListaEncadenadaIteracion.h"
 
 template<class T>
-ListaEncadenadaImp<T>::ListaEncadenadaImp(const Comparador<T>& comp) :
+ListaEncadenadaImp<T>::ListaEncadenadaImp(Comparador<T> comp) :
 	lista(nullptr),
 	cantidadElementos(0),
 	comparador(comp)

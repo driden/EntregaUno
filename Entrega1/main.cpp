@@ -197,9 +197,7 @@ void test_pila_iterador_array()
 
 void test_pqueue_lista()
 {
-	Comparador<int> comp = Comparador<int>();
-	Comparador<int> comp2 = Comparador<int>();
-	Puntero<ColaPrioridad<int, int>> pQueue = new ColaPrioridadLista<int, int>(25,comp, comp2);
+	Puntero<ColaPrioridad<int, int>> pQueue = new ColaPrioridadLista<int, int>(25, Comparador<int>::Default, Comparador<int>::Default);
 }
 
 void main()

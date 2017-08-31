@@ -21,7 +21,7 @@ NodoPQueue<T, P>& ColaPrioridadLista<T, P>::Buscar(const T& elem)
 }
 
 template <class T, class P>
-ColaPrioridadLista<T, P>::ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, const Comparador<T> &comparadorDato,nat max)
+ColaPrioridadLista<T, P>::ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato,nat max)
 {
 	pQueue = cola;
 	compDato = comparadorDato;
@@ -31,11 +31,12 @@ ColaPrioridadLista<T, P>::ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>>
 template <class T, class P>
 ColaPrioridadLista<T, P>::ColaPrioridadLista(
 	nat max,
-	const Comparador<P> &compPrioridad = Comparador<P>::Default, 
-	const Comparador<T> &comparadorDato = Comparador<T>::Default)
+	Comparador<P> compPrioridad, 
+	Comparador<T> comparadorDato)
 {
-	ComparadorNodoPQueue<T,P> compNodo = ComparadorNodoPQueue<T,P>(compPrioridad);
-	pQueue = new ListaEncadenadaImp<NodoPQueue<T, P>>(compNodo);
+	Comparador<NodoPQueue<T,P>>c(new ComparadorNodoPQueue<T,P> (compPrioridad));
+	
+	pQueue = new ListaEncadenadaImp<NodoPQueue<T, P>>(c);
 
 	compDato = comparadorDato;
 	maximaCantidad = max;

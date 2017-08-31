@@ -1,19 +1,21 @@
-#pragma once
+#ifndef COMPARADORNODOPQUEUE_H
+#define COMPARADORNODOPQUEUE_H
 #include "Comparacion.h"
 #include "NodoPQueue.h"
 #include "Comparador.h"
 
 template <class T, class P>
-class ComparadorNodoPQueue : Comparacion<NodoPQueue<T, P>>
+class ComparadorNodoPQueue : public Comparacion<NodoPQueue<T, P>>
 {
 private:
 	Comparador<P> comparador;
 public:
 	~ComparadorNodoPQueue(){}
-	explicit ComparadorNodoPQueue(Comparador<P> compPrioridad);
+	ComparadorNodoPQueue(Comparador<P> compPrioridad = Comparador<P>::Default);
 
 	CompRetorno Comparar(const NodoPQueue<T, P>& t1, const NodoPQueue<T, P>& t2) const override;
 };
 
 
 #include "ComparadorNodoPQueue.cpp"
+#endif

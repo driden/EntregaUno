@@ -8,7 +8,7 @@ class ColaIteracion : public Iteracion<T>
 {
 private:
 	Puntero<ListaOrd<NodoPQueue<T, P>>> pQueue;
-	Iterador<ListaOrd<NodoPQueue<T, P>>> colaIter;
+	Iterador<NodoPQueue<T, P>> colaIter;
 public:
 	~ColaIteracion(){}
 	ColaIteracion(const Puntero<ListaOrd<NodoPQueue<T, P>>> &pqueue);
@@ -18,6 +18,6 @@ public:
 	void Avanzar() override;
 	void Reiniciar() override;
 
-	Puntero<Iteracion<T>> Clonar() const { return nullptr; }
+	Puntero<Iteracion<T>> Clonar() const override{ return nullptr; }
 };
 #include "ColaIteracion.cpp"

@@ -10,16 +10,14 @@ private:
 	Puntero<ListaOrd<NodoPQueue<T, P>>> pQueue;
 	Comparador<T> compDato;
 	nat maximaCantidad;
-	
-
 
 	NodoPQueue<T, P>& Buscar(const T &elem);
-	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, const Comparador<T> &comparadorDato, nat max);
+	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato, nat max);
 public:
 	~ColaPrioridadLista(){}
 	ColaPrioridadLista(nat max,
-		const Comparador<P> &compPrioridad = Comparador<P>::Default,
-		const Comparador<T> &comparadorDato = Comparador<T>::Default);
+		Comparador<P> compPrioridad = Comparador<P>::Default,
+		Comparador<T> comparadorDato = Comparador<T>::Default);
 
 	// PRE: -
 	// POS: Encola el elemento e con prioridad p

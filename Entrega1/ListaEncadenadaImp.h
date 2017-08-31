@@ -22,7 +22,7 @@ private:
 public:
 	~ListaEncadenadaImp() {}
 
-	ListaEncadenadaImp(const Comparador<T>& comp);	
+	ListaEncadenadaImp(Comparador<T> comp = Comparador<T>::Default);
 
 	void InsertarOrdenado(const T& e) override;
 
