@@ -2,6 +2,7 @@
 #include "ColaPrioridad.h"
 #include "ListaOrd.h"
 #include "NodoPQueue.h"
+#include "ColaIteracion.h"
 
 template <class T, class P>
 class ColaPrioridadLista : public ColaPrioridad<T,P>

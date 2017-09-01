@@ -10,6 +10,8 @@
 #include "PilaLista.h"
 #include "PilaIteracion.h"
 #include "ColaIteracion.h"
+#include "NodoPQueue.h"
+#include "ColaIteracion.h"
 
 Puntero<Sistema> Inicializar()
 {
@@ -197,7 +199,27 @@ void test_pila_iterador_array()
 
 void test_pqueue_lista()
 {
-	Puntero<ColaPrioridad<int, int>> pQueue = new ColaPrioridadLista<int, int>(25, Comparador<int>::Default, Comparador<int>::Default);
+	Puntero<ColaPrioridad<int, int>> pQueue = new ColaPrioridadLista<int, int>(7, Comparador<int>::Default, Comparador<int>::Default);
+
+	std::cout << "Esta vacia? " << pQueue->EstaVacia() << endl;
+	std::cout << "Insertando elementos {E,P} = {10,1} {4,2} {1,1} {5,0} {6,8} {5,1} {2,2}\n";
+	pQueue->Encolar(10, 1);
+	pQueue->Encolar(4, 2);
+	pQueue->Encolar(1, 1);
+	pQueue->Encolar(5, 0);
+	pQueue->Encolar(6, 8);
+	pQueue->Encolar(5, 1);
+	pQueue->Encolar(2, 2);
+
+	std::cout << "Desencolando:\n";
+	
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
 }
 
 void main()
@@ -214,7 +236,7 @@ void main()
 	// test_pila_lista();
 	// test_pila_iterador_lista();
 	// test_pila_iterador_array();
-	test_pqueue_lista();
+	 test_pqueue_lista();
 	system("pause");
 }
 

@@ -14,9 +14,9 @@ CompRetorno ComparadorNodoPQueue<T,P>::Comparar(const NodoPQueue<T,P>& t1, const
 {
 	if (comparador.EsMayor(t1.GetPrioridad(),t2.GetPrioridad()))
 		return MAYOR;
-	if (comparador.EsMayor(t1.GetPrioridad() , t2.GetPrioridad()))
+	if (comparador.EsMenor(t1.GetPrioridad() , t2.GetPrioridad()))
 		return MENOR;
-	if (comparador.EsMayor(t1.GetPrioridad() , t2.GetPrioridad()))
+	if (comparador.SonIguales(t1.GetPrioridad() , t2.GetPrioridad()))
 		return IGUALES;
 	return DISTINTOS;
 }

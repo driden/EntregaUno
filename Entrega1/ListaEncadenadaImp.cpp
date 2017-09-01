@@ -33,32 +33,32 @@ void ListaEncadenadaImp<T>::InsertarOrdenado(const T & e)
 		Puntero<NodoLista<T>> iter = lista, anterior = lista;
 
 		// Busco hasta que encuentro un elemento menor al que tengo		
-		while (iter->_sig != nullptr && comparador.EsMayor(e, iter->_data)) {
+		while (iter && (comparador.EsMayor(e, iter->_data) || comparador.SonIguales(e, iter->_data))) {
 			anterior = iter;
 			iter = iter->_sig;
 		}
 
 		// Discrimino el caso de que tenga que ir al principio
-		if (iter == anterior) { // Comparacion de punteros
+		if (iter && (iter == anterior)) { // Comparacion de punteros
 			lista = nodo;
 			nodo->_sig = iter;
 		}
-		else if (iter->_sig == nullptr && comparador.EsMayor(e, iter->_data)) {
+		else if (iter == nullptr && comparador.EsMayor(e, anterior->_data)) {
 
 			// Si iter es el ultimo y 'e' es Mayor que data en iter
 			// entonces 'e' va despues de iter
-			iter->_sig = nodo;
+			anterior->_sig = nodo;
 		}
-		else if (iter->_sig == nullptr || comparador.SonIguales(e,iter->_data)) {
-			// Si el ultimo es menor que 'e' entonces 'e' va al final
-			// Inserto entre el anterior y el siguiente		
+		else
+		{
+			//generico
 			anterior->_sig = nodo;
 			nodo->_sig = iter;
 		}
 
 		// Clean up
-		anterior = nullptr;
-		iter = nullptr;
+		//anterior = nullptr;
+		//iter = nullptr;
 	}
 
 	cantidadElementos++;
@@ -89,6 +89,7 @@ void ListaEncadenadaImp<T>::Eliminar(const T & e)
 	//si son el mismo, es el primero
 	if (iter && (iter == anterior)) {
 		lista = iter->_sig;
+		//anterior = nullptr;
 	}
 	else if (iter && iter->_sig == nullptr) {
 		// es el ultimo
@@ -101,7 +102,7 @@ void ListaEncadenadaImp<T>::Eliminar(const T & e)
 	// Si no encontre
 	if (iter != nullptr)
 	{
-		iter = nullptr;
+		//iter = nullptr;
 		cantidadElementos--;
 	}	
 }
@@ -122,7 +123,7 @@ const T & ListaEncadenadaImp<T>::Obtener(const nat n) const
 		pos++;
 	}
 	T& dato = iter->_data;
-	iter = nullptr;
+	//iter = nullptr;
 	return dato;
 }
 
