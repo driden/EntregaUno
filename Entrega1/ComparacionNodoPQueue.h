@@ -16,6 +16,5 @@ public:
 	CompRetorno Comparar(const NodoPQueue<T, P>& t1, const NodoPQueue<T, P>& t2) const override;
 };
 
-
-#include "ComparadorNodoPQueue.cpp"
+#include "ComparacionNodoPQueue.cpp"
 #endif

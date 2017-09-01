@@ -98,7 +98,7 @@
     <ClCompile Include="CasoDePrueba.cpp" />
     <ClCompile Include="ColaIteracion.cpp" />
     <ClCompile Include="ColaPrioridadLista.cpp" />
-    <ClCompile Include="ComparadorNodoPQueue.cpp" />
+    <ClCompile Include="ComparacionNodoPQueue.cpp" />
     <ClCompile Include="ListaArrayImp.cpp" />
     <ClCompile Include="ListaEncadenadaImp.cpp" />
     <ClCompile Include="ListaEncadenadaIteracion.cpp" />
@@ -115,7 +115,7 @@
     <ClInclude Include="ColaIteracion.h" />
     <ClInclude Include="ColaPrioridad.h" />
     <ClInclude Include="ColaPrioridadLista.h" />
-    <ClInclude Include="ComparadorNodoPQueue.h" />
+    <ClInclude Include="ComparacionNodoPQueue.h" />
     <ClInclude Include="ListaArrayImp.h" />
     <ClInclude Include="ListaEncadenadaImp.h" />
     <ClInclude Include="ListaEncadenadaIteracion.h" />

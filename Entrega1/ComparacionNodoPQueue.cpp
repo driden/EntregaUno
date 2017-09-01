@@ -1,7 +1,7 @@
 #ifndef COMPARADORNODOPQUEUE_CPP
 #define COMPARADORNODOPQUEUE_CPP
 
-#include "ComparadorNodoPQueue.h"
+#include "ComparacionNodoPQueue.h"
 
 template <class T, class P>
 ComparadorNodoPQueue<T,P>::ComparadorNodoPQueue(Comparador<P> compPrioridad)

@@ -1,23 +1,21 @@
 #ifndef COLAPRIORIDADLISTA_CPP
 #define COLAPRIORIDADLISTA_CPP
 
-#include "ComparadorNodoPQueue.h"
+#include "ComparacionNodoPQueue.h"
 #include "ColaPrioridadLista.h"
 #include "ListaEncadenadaImp.h"
 
 template <class T, class P>
-NodoPQueue<T, P>& ColaPrioridadLista<T, P>::Buscar(const T& elem)
+NodoPQueue<T, P> ColaPrioridadLista<T, P>::Buscar(const T& elem) const
 {
 	Iterador<NodoPQueue<T, P>> iter = pQueue->ObtenerIterador();
 	
-	while (iter.HayElemento() && compDato.SonDistintos(elem,iter.ElementoActual()))
+	while (iter.HayElemento() && compDato.SonDistintos(elem,iter.ElementoActual().GetElemento()))
 	{
 		iter.Avanzar();
 	}
 
-	NodoPQueue<T, P> nodo = iter.ElementoActual();
-
-	return nodo;
+	return iter.ElementoActual();	
 }
 
 template <class T, class P>
@@ -52,11 +50,9 @@ void ColaPrioridadLista<T, P>::Encolar(const T& e, const P& p)
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::Desencolar()
 {
-	//NodoPQueue<T, P> nodo = Buscar(0);
-	//T valor = nodo.GetElemento();
-	//pQueue->Eliminar(valor);
-	//return valor;
-	return T();
+	const NodoPQueue<T, P> &nodo = Buscar(0);
+	pQueue->Eliminar(nodo);
+	return nodo.GetElemento();
 }
 
 template <class T, class P>
@@ -68,11 +64,7 @@ const T& ColaPrioridadLista<T, P>::Cabeza() const
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::ObtenerPrioridad(const T& e) const
 {
-	/*NodoPQueue<T, P>& nodo = nullptr;
-	nodo = Buscar(e);
-	T &elem = nodo.GetElemento();
-	return elem;*/
-	return T();
+	return Buscar(e).GetElemento();
 }
 
 template <class T, class P>

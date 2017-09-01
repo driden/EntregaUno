@@ -11,7 +11,7 @@ private:
 	Comparador<T> compDato;
 	nat maximaCantidad;
 
-	NodoPQueue<T, P>& Buscar(const T &elem);
+	NodoPQueue<T, P> Buscar(const T &elem) const;
 	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato, nat max);
 public:
 	~ColaPrioridadLista(){}

@@ -11,8 +11,8 @@ public:
 	NodoPQueue(const T& elem, const P& prioridad);
 	NodoPQueue(){}
 
-	T& GetElemento();
-	P& GetPrioridad();
+	const T& GetElemento() const;
+	const P& GetPrioridad() const;
 	void SetElemento(const T &elem);
 	void SetPrioridad(const P &prio);
 };
