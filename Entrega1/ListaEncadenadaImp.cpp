@@ -89,6 +89,7 @@ void ListaEncadenadaImp<T>::Eliminar(const T & e)
 	//si son el mismo, es el primero
 	if (iter && (iter == anterior)) {
 		lista = iter->_sig;
+		iter->_sig = nullptr;
 		//anterior = nullptr;
 	}
 	else if (iter && iter->_sig == nullptr) {

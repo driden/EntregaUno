@@ -13,7 +13,7 @@ ColaIteracion<T, P>::ColaIteracion(const Puntero<ListaOrd<NodoPQueue<T, P>>> &pq
 template <class T, class P>
 bool ColaIteracion<T, P>::HayElemento() const
 {
-	return !colaIter.HayElemento();
+	return colaIter.HayElemento();
 }
 
 template <class T, class P>

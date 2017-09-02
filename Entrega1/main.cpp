@@ -211,7 +211,19 @@ void test_pqueue_lista()
 	pQueue->Encolar(5, 1);
 	pQueue->Encolar(2, 2);
 
-	std::cout << "Desencolando:\n";
+	std::cout << "Esta llena? (1) =" << pQueue ->EstaLlena();
+	std::cout << "\nLargo 7 = "<< pQueue->Largo();
+
+	std::cout << "Iterando la pila:" << endl;
+	Iterador<int> itQueue = pQueue->ObtenerIterador();
+
+	while(itQueue.HayElemento())
+	{
+		std::cout << "e=" << itQueue.ElementoActual() << endl;
+		itQueue.Avanzar();
+	}
+
+	std::cout << "\nDesencolando:\n";
 	
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
@@ -220,6 +232,9 @@ void test_pqueue_lista()
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
+
+	std::cout << "\n Esta vacia?";
+	std::cout << "Esta llena? (1) =" << pQueue->EstaVacia() <<endl;
 }
 
 void main()

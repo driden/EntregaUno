@@ -50,7 +50,7 @@ void ColaPrioridadLista<T, P>::Encolar(const T& e, const P& p)
 template <class T, class P>
 const T& ColaPrioridadLista<T, P>::Desencolar()
 {
-	const NodoPQueue<T, P> &nodo = pQueue->Obtener(0);
+	const NodoPQueue<T, P> nodo = pQueue->Obtener(0);
 	pQueue->Eliminar(nodo);
 	return nodo.GetElemento();
 }
