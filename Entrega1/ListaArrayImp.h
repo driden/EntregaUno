@@ -10,10 +10,13 @@ private:
 	Array<T> lista;
 	int tope;
 	Comparador<T> comparador;
+
+	int IndexOf(const T& e) const;
+	ListaArrayImp(nat size, Array<T> arr, int tope, const Comparador<T> comp);
 public:
 	~ListaArrayImp(){}
 	ListaArrayImp(const nat &tamanio, Comparador<T> comparador);
-
+	ListaArrayImp(const Comparador<T>& comp);
 	// PRE: Está ordenada
 	// POS: e pertenece a la lista. La lista está ordenada y contiene todos los elementos que había en la lista antes de la inserción
 	void InsertarOrdenado(const T& e) override;
@@ -48,6 +51,6 @@ public:
 
 	// PRE:
 	// POS: Retorna un iterador de la lista
-	Iterador<T> ObtenerIterador() const override;
+	Iterador<T> ObtenerIterador() const override;	
 };
 #include "ListaArrayImp.cpp"

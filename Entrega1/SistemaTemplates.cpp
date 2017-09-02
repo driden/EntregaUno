@@ -1,9 +1,12 @@
-#include "PilaLista.h"
-#include "PilaArray.h"
+
 #ifndef SISTEMATEMPLATES_CPP
 #define SISTEMATEMPLATES_CPP
 
 #include "Sistema.h"
+#include "PilaLista.h"
+#include "PilaArray.h"
+#include "ListaEncadenadaImp.h"
+#include "ListaArrayImp.h"
 
 template <class T>
 void Sistema::MergeSort(Array<T> &arr, int low, int high, Comparador<T> comp)
@@ -126,13 +129,13 @@ bool Sistema::Iguales(const Puntero<Pila<T>>& pila1, const Puntero<Pila<T>>& pil
 template<class T>
 Puntero<ListaOrd<T>> Sistema::CrearListaOrdenadaEncadenada(const Comparador<T>& comp)
 {
-	return nullptr;
+	return new ListaEncadenadaImp<T>(comp);
 }
 
 template <class T>
 Puntero<ListaOrd<T>> Sistema::CrearListaOrdenadaConArray(const Comparador<T>& comp)
 {
-	return nullptr;
+	return new ListaArrayImp<T>(comp);	
 }
 
 template <class T>

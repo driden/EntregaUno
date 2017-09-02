@@ -120,7 +120,24 @@ Array<Cadena> Sistema::Split(const Cadena& origen, char delimiter)
 }
 Cadena Sistema::Reverso(const Cadena& origen)
 {
-	return Cadena("");
+	Array<Cadena> separado = Split(origen, ' ');
+	Puntero<Pila<Cadena>> pila = new PilaLista<Cadena>(separado.Largo);
+	
+	for (nat k = 0 ; k < separado.Largo ; k++)
+	{
+		pila->Push(separado[k]);
+	}
+
+	Iterador<Cadena> iter = pila->ObtenerIterador();
+	Cadena inversa = "";
+	while(iter.HayElemento())
+	{
+		inversa += iter.ElementoActual();
+		inversa += " ";
+		iter.Avanzar();
+	}
+
+	return inversa;
 }
 
 #endif
