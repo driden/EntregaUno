@@ -50,6 +50,25 @@ void Sistema::OrdenarEnteros(Array<int>& elementos)
 // Operación 2: Búsqueda
 bool Sistema::ExisteSuma(const Array<int>& elementos, int suma)
 {
+	// Copio el array de entrada porque elementos es constante
+	Array<int> copia(elementos.Largo);
+	Array<int>::Copiar(elementos, copia);
+
+	// Ordeno el array
+	Ordenar<int>(copia, Comparador<int>::Default);
+
+	int largoCopia = copia.Largo;
+	for (int i = 0; i < largoCopia;i++)
+	{
+		Array<int> copiaSinI(copia.Largo - 1);
+		Array<int>::Copiar(copia, 0, i, copiaSinI, 0);
+		Array<int>::Copiar(copia, i+1, copiaSinI, i);
+
+		int aBuscar = suma - copia[i];
+		int res = Busqueda<int>(copiaSinI, aBuscar, Comparador<int>::Default);
+
+		if (res != -1) return true;
+	}
 	return false;
 }
 

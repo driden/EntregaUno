@@ -252,6 +252,7 @@ void main()
 	// test_pila_iterador_lista();
 	// test_pila_iterador_array();
 	// test_pqueue_lista();
-	// system("pause");
+	
+	system("pause");
 }
 
