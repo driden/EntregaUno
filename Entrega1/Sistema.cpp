@@ -38,12 +38,12 @@ void Sistema::OrdenarEnteros(Array<int>& elementos)
 		for (int cantidad = 0; cantidad < arr[i]; cantidad++)
 		{
 			elementos[iterElementos + cantidad] = i - 1;
-			
+
 		}
-		
+
 		// recalculo el offset para la siguiente pasada
-		if(arr[i] > 0)
-			iterElementos += arr[i];		
+		if (arr[i] > 0)
+			iterElementos += arr[i];
 	}
 }
 
@@ -58,11 +58,11 @@ bool Sistema::ExisteSuma(const Array<int>& elementos, int suma)
 	Ordenar<int>(copia, Comparador<int>::Default);
 
 	int largoCopia = copia.Largo;
-	for (int i = 0; i < largoCopia;i++)
+	for (int i = 0; i < largoCopia; i++)
 	{
 		Array<int> copiaSinI(copia.Largo - 1);
 		Array<int>::Copiar(copia, 0, i, copiaSinI, 0);
-		Array<int>::Copiar(copia, i+1, copiaSinI, i);
+		Array<int>::Copiar(copia, i + 1, copiaSinI, i);
 
 		int aBuscar = suma - copia[i];
 		int res = Busqueda<int>(copiaSinI, aBuscar, Comparador<int>::Default);
@@ -75,7 +75,48 @@ bool Sistema::ExisteSuma(const Array<int>& elementos, int suma)
 // Operacion 4: Cadenas
 Array<Cadena> Sistema::Split(const Cadena& origen, char delimiter)
 {
-	return Array<Cadena>();
+	nat largo = origen.Largo;
+
+	nat cantidadArrays = 0;
+
+	Array<bool> validos(largo, true);
+
+	for (int i = 0; i < static_cast<int>(largo); i++)
+	{
+		if (origen[i] == delimiter)
+			validos[i] = false;
+	}
+
+	bool anterior = false, actual = true;
+	for (int b = 0; b < static_cast<int>(largo); b++)
+	{
+		actual = validos[b];
+	
+		if (anterior != actual && actual)			
+			cantidadArrays++;
+		
+		anterior = actual;
+	}
+
+	Array<Cadena> split(cantidadArrays,"");
+	int indiceArraySplit = 0;
+	int desde = 0, hasta = 0;
+	for (nat i = 0; i < origen.Largo; i++)
+	{
+		if (validos[i])
+			hasta = i;
+		else
+		{
+			//Substring
+			split[indiceArraySplit] = origen.SubCadena(desde, hasta - desde +1 );
+			desde = i+1;
+			indiceArraySplit++;
+		}
+	}
+	if (validos[origen.Largo-1] && hasta == (origen.Largo-1))
+		split[indiceArraySplit] = origen.SubCadena(desde, hasta - desde + 1);
+	
+	return split;
 }
 Cadena Sistema::Reverso(const Cadena& origen)
 {
