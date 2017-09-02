@@ -26,6 +26,9 @@ public:
 
 	// Operación 2: Búsqueda
 	template <class T>
+	int BusquedaBinaria(const Array<T>& elementos, int min, int max, const T& elem, const Comparador<T>& comp);
+
+	template <class T>
 	int Busqueda(const Array<T>& elementos, const T& elem, const Comparador<T>& comp);
 	bool ExisteSuma(const Array<int>& elementos, int suma);
 

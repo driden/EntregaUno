@@ -55,15 +55,32 @@ void Sistema::Ordenar(Array<T>& elementos, const Comparador<T>& comp)
 
 ///////////////////////////////////////////////////////////////////////////
 template<class T>
-void Sistema::BusquedaBinaria(const Array<T>& elementos, const T& elem, const Comparador<T>& comp)
+int Sistema::BusquedaBinaria(const Array<T>& elementos, int min, int max, const T& elem, const Comparador<T>& comp)
 {
-	
+	if (min > max) return -1;
+	int medio = (min + max) / 2;
+
+	if (comp.EsMenor(elementos[medio],elem))
+	{
+		//busco a la der
+		return BusquedaBinaria(elementos, medio + 1, max, elem, comp);
+
+	}else if (comp.EsMenor(elem, elementos[medio]))
+	{
+		//busco a la izq
+		return BusquedaBinaria(elementos, min, medio-1, elem, comp);
+
+	}else if (comp.SonIguales(elem, elementos[medio]))
+	{
+		return medio;
+	}
+	return -1;
 }
 // Operación 2: Búsqueda
 template <class T>
 int Sistema::Busqueda(const Array<T>& elementos, const T& elem, const Comparador<T>& comp)
 {
-	return -1;
+	return BusquedaBinaria(elementos, 0, elementos.Largo, elem, comp);
 }
 
 // Operación 3: TAD Pila

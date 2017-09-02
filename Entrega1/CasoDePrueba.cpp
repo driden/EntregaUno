@@ -19,9 +19,9 @@ Cadena CasoDePrueba::GetNombre()const
 
 void CasoDePrueba::CorrerPruebaConcreta()
 {
-	PruebaOperacion1();
-	/*PruebaOperacion2();
-	PruebaOperacion3();
+	//PruebaOperacion1();
+	PruebaOperacion2();
+	/*PruebaOperacion3();
 	PruebaOperacion4();
 	PruebaOperacion5();
 	PruebaOperacion6();
