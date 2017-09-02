@@ -15,6 +15,10 @@ public:
 	Sistema();
 	~Sistema();
 
+	template<class T>
+	void MergeSort(Array<T> &arr, int low, int high, Comparador<T> comp);
+	template<class T>
+	void Merge(Array<T> &arr, int left_low, int left_high, int right_low, int right_high, Comparador<T> comp);
 	// Ejercicio 1: ordenamiento
 	template <class T>
 	void Ordenar(Array<T>& elementos, const Comparador<T>& comp);

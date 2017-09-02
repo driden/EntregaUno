@@ -20,12 +20,12 @@ Cadena CasoDePrueba::GetNombre()const
 void CasoDePrueba::CorrerPruebaConcreta()
 {
 	PruebaOperacion1();
-	PruebaOperacion2();
+	/*PruebaOperacion2();
 	PruebaOperacion3();
 	PruebaOperacion4();
 	PruebaOperacion5();
 	PruebaOperacion6();
-	PruebaOperacion7();
+	PruebaOperacion7();*/
 }
 
 void CasoDePrueba::Verificar(TipoRetorno obtenido, TipoRetorno esperado, Cadena comentario)

@@ -239,19 +239,19 @@ void test_pqueue_lista()
 
 void main()
 {
-	/*Puntero<ConductorPrueba> cp = new ConductorPrueba();
+	Puntero<ConductorPrueba> cp = new ConductorPrueba();
 	Array<Puntero<Prueba>> pruebas = Array<Puntero<Prueba>>(3);
 	pruebas[0] = new PruebaMemoria();
 	pruebas[1] = new CasoDePrueba(Inicializar);
 	pruebas[2] = pruebas[0];
-	cp->CorrerPruebas(pruebas.ObtenerIterador());*/
+	cp->CorrerPruebas(pruebas.ObtenerIterador());
 
 	// test_lista_encadenada();
 	// test_pila_array();
 	// test_pila_lista();
 	// test_pila_iterador_lista();
 	// test_pila_iterador_array();
-	 test_pqueue_lista();
-	system("pause");
+	// test_pqueue_lista();
+	// system("pause");
 }
 
