@@ -1,3 +1,5 @@
+#include "PilaLista.h"
+#include "PilaArray.h"
 #ifndef SISTEMATEMPLATES_CPP
 #define SISTEMATEMPLATES_CPP
 
@@ -87,19 +89,37 @@ int Sistema::Busqueda(const Array<T>& elementos, const T& elem, const Comparador
 template <class T>
 Puntero<Pila<T>> Sistema::CrearPilaSimplementeEncadenada(nat tamano)
 {
-	return nullptr;
+	return new PilaLista<T>(tamano);
 }
 
 template <class T>
 Puntero<Pila<T>> Sistema::CrearPilaArray(nat tamano)
 {
-	return nullptr;
+	return new PilaArray<T>(tamano);
 }
 
 template <class T>
 bool Sistema::Iguales(const Puntero<Pila<T>>& pila1, const Puntero<Pila<T>>& pila2, const Comparador<T>& comp)
 {
-	return false;
+	Iterador<T> itPila1 = pila1->ObtenerIterador();
+	Iterador<T> itPila2 = pila2->ObtenerIterador();
+
+	while(itPila1.HayElemento())
+	{
+		if (!itPila2.HayElemento())
+			return false;
+
+		if (!comp.SonIguales(itPila1.ElementoActual(), itPila2.ElementoActual()))
+			return false;
+
+		itPila1.Avanzar();
+		itPila2.Avanzar();
+	}
+	
+	if (!itPila1.HayElemento() && itPila2.HayElemento())
+		return false;
+	
+	return true;
 }
 
 // Operación 5: Lista Ordenada

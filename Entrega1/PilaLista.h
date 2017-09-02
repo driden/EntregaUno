@@ -43,7 +43,4 @@ public:
 
 	Iterador<T> ObtenerIterador() const override;
 };
-
-
-
 #include "PilaLista.cpp"
