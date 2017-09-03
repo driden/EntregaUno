@@ -19,13 +19,13 @@ Cadena CasoDePrueba::GetNombre()const
 
 void CasoDePrueba::CorrerPruebaConcreta()
 {
-	// PruebaOperacion1();
-	// PruebaOperacion2();
-	// PruebaOperacion3();
-	// PruebaOperacion4();
+	PruebaOperacion1();
+	PruebaOperacion2();
+	PruebaOperacion3();
+	PruebaOperacion4();
 	PruebaOperacion5();
-	/*	PruebaOperacion6();
-	PruebaOperacion7();*/
+	PruebaOperacion6();
+	PruebaOperacion7();
 }
 
 void CasoDePrueba::Verificar(TipoRetorno obtenido, TipoRetorno esperado, Cadena comentario)
@@ -220,7 +220,7 @@ void CasoDePrueba::PruebaOperacion1()
 	esperado[0] = "Felipe";
 	esperado[1] = "Martin";
 	esperado[2] = "Pedro";
-		
+
 	Array<Cadena> cadenas(3);
 	cadenas[0] = "Martin";
 	cadenas[1] = "Felipe";
@@ -229,7 +229,7 @@ void CasoDePrueba::PruebaOperacion1()
 	interfaz->Ordenar<Cadena>(cadenas, Comparador<Cadena>::Default);
 
 	VerificarSecuencias(cadenas.ObtenerIterador(), esperado.ObtenerIterador(), "Se obtuvo {0} y se esperaba {1}", "Se esperaba {0}", "No se esperaba {0}");
-	
+
 	CerrarSeccion();
 
 	IniciarSeccion("Operacion 1b");
@@ -239,7 +239,7 @@ void CasoDePrueba::PruebaOperacion1()
 	esperado2[1] = 850;
 	esperado2[2] = 1500;
 	esperado2[3] = 2000;
-		
+
 	Array<int> enteros(4);
 	enteros[0] = 850;
 	enteros[1] = 1500;
@@ -249,7 +249,7 @@ void CasoDePrueba::PruebaOperacion1()
 	interfaz->OrdenarEnteros(enteros);
 
 	VerificarSecuencias(enteros.ObtenerIterador(), esperado2.ObtenerIterador(), "Se obtuvo {0} y se esperaba {1}", "Se esperaba {0}", "No se esperaba {0}");
-	
+
 	CerrarSeccion();
 }
 //Operación 2:
@@ -280,10 +280,10 @@ void CasoDePrueba::PruebaOperacion2()
 	elementos2[2] = 15;
 	elementos2[3] = 10;
 
-	Verificar(interfaz->ExisteSuma(elementos2,25), true, "Se verifica operacion 2b");
-	Verificar(interfaz->ExisteSuma(elementos2,26), false, "Se verifica operacion 2b");
-	Verificar(interfaz->ExisteSuma(elementos2,2), false, "Se verifica operacion 2b");
-	Verificar(interfaz->ExisteSuma(elementos2,37), true, "Se verifica operacion 2b");
+	Verificar(interfaz->ExisteSuma(elementos2, 25), true, "Se verifica operacion 2b");
+	Verificar(interfaz->ExisteSuma(elementos2, 26), false, "Se verifica operacion 2b");
+	Verificar(interfaz->ExisteSuma(elementos2, 2), false, "Se verifica operacion 2b");
+	Verificar(interfaz->ExisteSuma(elementos2, 37), true, "Se verifica operacion 2b");
 	CerrarSeccion();
 }
 //Operación 3:
@@ -294,7 +294,7 @@ void CasoDePrueba::PruebaOperacion3()
 	Cadena sonIguales = "Las pilas son iguales";
 	Cadena sonDistintas = "Las pilas son distintas";
 
-	Puntero<Pila<Cadena>> pila1 = interfaz->CrearPilaSimplementeEncadenada<Cadena>(100);	
+	Puntero<Pila<Cadena>> pila1 = interfaz->CrearPilaSimplementeEncadenada<Cadena>(100);
 	Puntero<Pila<Cadena>> pila2 = interfaz->CrearPilaArray<Cadena>(100);
 
 	if (pila1 == nullptr)
@@ -342,7 +342,7 @@ void CasoDePrueba::PruebaOperacion4()
 	esperado[6] = "rtales";
 
 	VerificarSecuencias(retorno.ObtenerIterador(), esperado.ObtenerIterador(), "Se obtuvo {0} y se esperaba {1}", "Se esperaba {0}", "No se esperaba {0}");
-	
+
 	CerrarSeccion();
 
 	IniciarSeccion("Operacion 4b");
@@ -351,7 +351,7 @@ void CasoDePrueba::PruebaOperacion4()
 	Cadena esperado2 = "peso. su ignora corona, una ambiciona Quien";
 
 	Verificar(retorno2, esperado2, "Se verifica la operacion 4b");
-	
+
 	CerrarSeccion();
 }
 
@@ -403,7 +403,7 @@ void CasoDePrueba::PruebaOperacion5()
 	{
 		Verificar(false, true, "La lista ordenada encadenada retornada por CrearListaOrdenadaConArray es nula");
 	}
-	else 
+	else
 	{
 		Puntero<ListaOrd<int>> listaInt = interfaz->CrearListaOrdenadaConArray<int>(Comparador<int>::Default);
 		int paraInsertar = 1;

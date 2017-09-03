@@ -1,9 +1,9 @@
 #ifndef COLAPRIORIDADLISTA_CPP
 #define COLAPRIORIDADLISTA_CPP
 
+#include "ListaOrdMayorAMenor.h"
 #include "ComparacionNodoPQueue.h"
 #include "ColaPrioridadLista.h"
-#include "ListaEncadenadaImp.h"
 
 template <class T, class P>
 NodoPQueue<T, P> ColaPrioridadLista<T, P>::Buscar(const T& elem) const
@@ -34,7 +34,7 @@ ColaPrioridadLista<T, P>::ColaPrioridadLista(
 {
 	Comparador<NodoPQueue<T,P>>c(new ComparadorNodoPQueue<T,P> (compPrioridad));
 	
-	pQueue = new ListaEncadenadaImp<NodoPQueue<T, P>>(c);
+	pQueue = new ListaOrdMayorAMenor<NodoPQueue<T, P>>(c);
 
 	compDato = comparadorDato;
 	maximaCantidad = max;
@@ -51,8 +51,9 @@ template <class T, class P>
 const T& ColaPrioridadLista<T, P>::Desencolar()
 {
 	const NodoPQueue<T, P> nodo = pQueue->Obtener(0);
+	ultimoDesencolado = nodo.GetElemento();
 	pQueue->Eliminar(nodo);
-	return nodo.GetElemento();
+	return ultimoDesencolado;
 }
 
 template <class T, class P>

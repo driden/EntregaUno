@@ -1,4 +1,5 @@
 
+#include "ColaPrioridadLista.h"
 #ifndef SISTEMATEMPLATES_CPP
 #define SISTEMATEMPLATES_CPP
 
@@ -15,9 +16,9 @@ void Sistema::MergeSort(Array<T> &arr, int low, int high, Comparador<T> comp)
 		return;
 	else {
 		int mid = (low + high) / 2;
-		MergeSort(arr, low, mid,comp);
-		MergeSort(arr, mid + 1, high,comp);
-		Merge(arr, low, mid, mid + 1, high,comp);
+		MergeSort(arr, low, mid, comp);
+		MergeSort(arr, mid + 1, high, comp);
+		Merge(arr, low, mid, mid + 1, high, comp);
 	}
 }
 template <class T>
@@ -29,21 +30,21 @@ void Sistema::Merge(Array<T> &arr, int left_low, int left_high, int right_low, i
 	int right = right_low;
 
 	for (int i = 0; i < length; ++i) {
-		
+
 		if (left > left_high)
 			temp[i] = arr[right++];
-		
+
 		else if (right > right_high)
 			temp[i] = arr[left++];
-		
-		else if (comp.EsMenor(arr[left] ,arr[right]) || comp.SonIguales(arr[left], arr[right]))
+
+		else if (comp.EsMenor(arr[left], arr[right]) || comp.SonIguales(arr[left], arr[right]))
 			temp[i] = arr[left++];
-		
+
 		else
 			temp[i] = arr[right++];
 	}
 
-	for (int i = 0; i< length; ++i)
+	for (int i = 0; i < length; ++i)
 		arr[left_low++] = temp[i];
 }
 
@@ -54,7 +55,7 @@ void Sistema::Ordenar(Array<T>& elementos, const Comparador<T>& comp)
 	// Use un mergesort
 	// se subdivide el array en 2, high y low y se ordena cada subarray
 	// luego se mergean los resultados
-	
+
 	MergeSort(elementos, 0, elementos.Largo - 1, comp);
 }
 
@@ -65,17 +66,19 @@ int Sistema::BusquedaBinaria(const Array<T>& elementos, int min, int max, const 
 	if (min > max) return -1;
 	int medio = (min + max) / 2;
 
-	if (comp.EsMenor(elementos[medio],elem))
+	if (comp.EsMenor(elementos[medio], elem))
 	{
 		//busco a la der
 		return BusquedaBinaria(elementos, medio + 1, max, elem, comp);
 
-	}else if (comp.EsMenor(elem, elementos[medio]))
+	}
+	else if (comp.EsMenor(elem, elementos[medio]))
 	{
 		//busco a la izq
-		return BusquedaBinaria(elementos, min, medio-1, elem, comp);
+		return BusquedaBinaria(elementos, min, medio - 1, elem, comp);
 
-	}else if (comp.SonIguales(elem, elementos[medio]))
+	}
+	else if (comp.SonIguales(elem, elementos[medio]))
 	{
 		return medio;
 	}
@@ -107,7 +110,7 @@ bool Sistema::Iguales(const Puntero<Pila<T>>& pila1, const Puntero<Pila<T>>& pil
 	Iterador<T> itPila1 = pila1->ObtenerIterador();
 	Iterador<T> itPila2 = pila2->ObtenerIterador();
 
-	while(itPila1.HayElemento())
+	while (itPila1.HayElemento())
 	{
 		if (!itPila2.HayElemento())
 			return false;
@@ -118,10 +121,10 @@ bool Sistema::Iguales(const Puntero<Pila<T>>& pila1, const Puntero<Pila<T>>& pil
 		itPila1.Avanzar();
 		itPila2.Avanzar();
 	}
-	
+
 	if (!itPila1.HayElemento() && itPila2.HayElemento())
 		return false;
-	
+
 	return true;
 }
 
@@ -135,7 +138,7 @@ Puntero<ListaOrd<T>> Sistema::CrearListaOrdenadaEncadenada(const Comparador<T>& 
 template <class T>
 Puntero<ListaOrd<T>> Sistema::CrearListaOrdenadaConArray(const Comparador<T>& comp)
 {
-	return new ListaArrayImp<T>(comp);	
+	return new ListaArrayImp<T>(comp);
 }
 
 template <class T>
@@ -166,7 +169,7 @@ bool Sistema::ListasSonIguales(const Puntero<ListaOrd<T>>& lista1, const Puntero
 template<class T, class P>
 Puntero<ColaPrioridad<T, P>> Sistema::CrearColaPrioridad(nat tamano)
 {
-	return nullptr;
+	return new ColaPrioridadLista<T, P>(tamano);
 }
 
 
@@ -174,7 +177,36 @@ Puntero<ColaPrioridad<T, P>> Sistema::CrearColaPrioridad(nat tamano)
 template <class T>
 Array<T> Sistema::MayoresN(Array<Array<T>> datos, const Comparador<T>& comp, nat n)
 {
-	return Array<T>();
+	Puntero<ColaPrioridad<T, T>> pQueue = new ColaPrioridadLista<T, T>(datos[0].Largo * datos.Largo, comp, comp);
+
+	for (nat x = 0; x < datos.Largo; x++)
+	{
+		for (nat y = 0; y < datos[x].Largo; y++)
+		{
+			// y = prioridad
+			// datos[x][y] = elemento
+			pQueue->Encolar(datos[x][y], y);
+		}
+	}
+	
+	// Como vienen todos desordenados (por el orden en el que se insertaron, falta ordenarlos)
+	Puntero<ListaOrd<T>> listaMayorMenor = new ListaOrdMayorAMenor<T>(comp);
+	Array<T>mayores(n);
+
+	for (nat i = 0; i < n; i++)
+	{
+		listaMayorMenor->InsertarOrdenado(pQueue->Desencolar());
+	}
+
+	Iterador<T> it = listaMayorMenor->ObtenerIterador();
+	
+	for (nat i = 0; it.HayElemento(); i++)
+	{
+		mayores[i] = it.ElementoActual();
+		it.Avanzar();
+	}
+
+	return mayores;
 }
 
 #endif

@@ -233,8 +233,68 @@ void test_pqueue_lista()
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
 	std::cout << "Elemento: " << pQueue->Desencolar() << endl;
 
-	std::cout << "\n Esta vacia?";
-	std::cout << "Esta llena? (1) =" << pQueue->EstaVacia() <<endl;
+	std::cout << "\nEsta vacia? (1) = " << pQueue->EstaVacia() << "\n";
+	std::cout << "Esta llena? (0) =" << pQueue->EstaLlena() <<endl;
+}
+
+void test_lista_encadenada_mayor_menor()
+{
+	Comparador<int> comp = Comparador<int>();
+
+	Puntero<ListaOrd<int>> miLista = new ListaOrdMayorAMenor<int>(comp);
+	cout << "Agrego los numeros 5, 4, 6, 3, 2, 1 a la lista" << endl;
+	miLista->InsertarOrdenado(5);
+	miLista->InsertarOrdenado(4);
+	miLista->InsertarOrdenado(6);
+	miLista->InsertarOrdenado(3);
+	miLista->InsertarOrdenado(2);
+	miLista->InsertarOrdenado(1);
+
+	Puntero<ListaOrd<int>> miClon = miLista->Clon();
+
+	Iterador<int> iter = miLista->ObtenerIterador();
+	imprimirLista(iter);
+
+	cout << "Este es el clon: ";
+	imprimirLista(miClon->ObtenerIterador());
+
+	cout << "Elimino el primero (6)" << endl;
+	miLista->Eliminar(6);
+	imprimirLista(miLista->ObtenerIterador());
+
+	cout << "Elimino el ultimo (1)" << endl;
+	miLista->Eliminar(1);
+	imprimirLista(miLista->ObtenerIterador());
+
+	cout << "Elimino caso generico (3) y (4)" << endl;
+	miLista->Eliminar(3);
+	miLista->Eliminar(4);
+	imprimirLista(miLista->ObtenerIterador());
+
+	cout << "Obtener(0) = 6 ? " << miClon->Obtener(0) << endl;
+	cout << "Obtener(5) = 1 ? " << miClon->Obtener(5) << endl;
+	cout << "Obtener(2) = 4 ? " << miClon->Obtener(2) << endl;
+
+	miLista->Eliminar(2);
+	miLista->Eliminar(5);
+	cout << "Elimino 2 y 5 de miLista, queda vacia?" << miLista->EstaVacia() << endl;
+
+	std::cout << "Nueva lista, 3, es elemento repetido (2,3,3,4,5)" << endl;
+	Puntero<ListaOrd<int>> listaRepetida = new ListaEncadenadaImp<int>(comp);
+	listaRepetida->InsertarOrdenado(5);
+	listaRepetida->InsertarOrdenado(4);
+	listaRepetida->InsertarOrdenado(3);
+	listaRepetida->InsertarOrdenado(2);
+	listaRepetida->InsertarOrdenado(3);
+
+	Iterador<int> itRepetido = listaRepetida->ObtenerIterador();
+	imprimirLista(itRepetido);
+
+	std::cout << endl << endl << "Elimino el 3 y el 1, el 1 no esta. res = (2,3,4,5) = ";
+	listaRepetida->Eliminar(3);
+	listaRepetida->Eliminar(1);
+	auto it2 = listaRepetida->ObtenerIterador();
+	imprimirLista(it2);
 }
 
 void main()
@@ -251,8 +311,8 @@ void main()
 	// test_pila_lista();
 	// test_pila_iterador_lista();
 	// test_pila_iterador_array();
-	// test_pqueue_lista();
-	
+	//test_pqueue_lista();
+	// test_lista_encadenada_mayor_menor();
 	system("pause");
 }
 

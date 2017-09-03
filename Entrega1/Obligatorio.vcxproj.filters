@@ -22,6 +22,9 @@
     <Filter Include="Implementacion\Tads\ColaPrioridad">
       <UniqueIdentifier>{63737e12-fc80-4da5-8487-c6daec26b722}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Implementacion\Tads\ListaOrdenada\Iteradores">
+      <UniqueIdentifier>{5baa48a4-7a4b-4499-94e9-14fcb2aa604d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CasoDePrueba.cpp">
@@ -37,9 +40,6 @@
       <Filter>Implementacion</Filter>
     </ClCompile>
     <ClCompile Include="ListaEncadenadaImp.cpp">
-      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaEncadenadaIteracion.cpp">
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
     </ClCompile>
     <ClCompile Include="PilaArray.cpp">
@@ -67,6 +67,15 @@
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
     </ClCompile>
     <ClCompile Include="ListaArrayIteracion.cpp">
+      <Filter>Implementacion\Tads\ListaOrdenada\Iteradores</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEncadenadaIteracion.cpp">
+      <Filter>Implementacion\Tads\ListaOrdenada\Iteradores</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaEncadenadaMayorMenorIteracion.cpp">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaOrdMayorAMenor.cpp">
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,9 +87,6 @@
       <Filter>Implementacion</Filter>
     </ClInclude>
     <ClInclude Include="ListaEncadenadaImp.h">
-      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
-    </ClInclude>
-    <ClInclude Include="ListaEncadenadaIteracion.h">
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
     </ClInclude>
     <ClInclude Include="NodoLista.h">
@@ -120,6 +126,15 @@
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
     </ClInclude>
     <ClInclude Include="ListaArrayIteracion.h">
+      <Filter>Implementacion\Tads\ListaOrdenada\Iteradores</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEncadenadaIteracion.h">
+      <Filter>Implementacion\Tads\ListaOrdenada\Iteradores</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEncadenadaMayorMenorIteracion.h">
+      <Filter>Implementacion\Tads\ListaOrdenada</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaOrdMayorAMenor.h">
       <Filter>Implementacion\Tads\ListaOrdenada</Filter>
     </ClInclude>
   </ItemGroup>
