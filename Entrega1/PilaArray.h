@@ -11,12 +11,24 @@ private:
 	nat maximo;
 	int tope;
 
+	/// PRE:
+	/// POS: Crea una nueva instancia de PilaArray, usado para cloanr la clase
 	PilaArray(Array<T> pila, nat max, int tope);	
 public:
 	~PilaArray() {}
+	
+	/// PRE:
+	/// POS: Crea una nueva instancia de PilaArray
 	PilaArray();
+	
+	/// PRE:
+	/// POS: Crea una nueva instancia de PilaArray
 	PilaArray(const PilaArray<T> &pilaArray);
+	
+	/// PRE:
+	/// POS: Crea una nueva instancia de PilaArray
 	PilaArray(nat max);
+	
 	// Coloca el elemento e en el tope
 	void Push(const T& e) override;
 
@@ -37,6 +49,8 @@ public:
 	//Retorna un clon de la pila que no comparte memoria con ella
 	Puntero<Pila<T>> Clon() const override;
 
+	/// PRE: -
+	/// POS: Obtiene un iterador de PilaArray
 	Iterador<T> ObtenerIterador() const override;
 };
 

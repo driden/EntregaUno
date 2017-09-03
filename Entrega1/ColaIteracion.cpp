@@ -34,4 +34,10 @@ void ColaIteracion<T, P>::Reiniciar()
 	colaIter.Reiniciar();
 }
 
+template <class T, class P>
+Puntero<Iteracion<T>> ColaIteracion<T, P>::Clonar() const
+{
+	return new ColaIteracion(pQueue->Clon());	
+}
+
 #endif

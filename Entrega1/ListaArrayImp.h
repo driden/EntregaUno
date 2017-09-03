@@ -11,12 +11,24 @@ private:
 	int tope;
 	Comparador<T> comparador;
 
+	// PRE: el elemento e se encuentra en la lista
+	// POS: devuelve el indice en el que se encuentra e o -1 si no se encuentra
 	int IndexOf(const T& e) const;
+	
+	// PRE: -
+	// POS: Crea una nueva listaArray con el tamanio, un arreglo, el tope, y el comparador 
 	ListaArrayImp(nat size, Array<T> arr, int tope, const Comparador<T> comp);
 public:
 	~ListaArrayImp(){}
+	
+	// PRE: -
+	// POS: Crea una nueva instancia de ListaArrayImp con un tamanio y un comparador dado	
 	ListaArrayImp(const nat &tamanio, Comparador<T> comparador);
+	
+	// PRE: -
+	// POS: Crea una nueva instancia de ListaArrayImp con comparador dado, se asume un maximo internamente
 	ListaArrayImp(const Comparador<T>& comp);
+	
 	// PRE: Está ordenada
 	// POS: e pertenece a la lista. La lista está ordenada y contiene todos los elementos que había en la lista antes de la inserción
 	void InsertarOrdenado(const T& e) override;

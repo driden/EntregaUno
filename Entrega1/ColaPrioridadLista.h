@@ -13,10 +13,20 @@ private:
 	nat maximaCantidad;
 	T ultimoDesencolado;
 
+	// PRE: la cola tiene un elemento elem
+	// POS: Encola el elemento e con prioridad p
 	NodoPQueue<T, P> Buscar(const T &elem) const;
+
+	// PRE: -
+	// POS: Crea una cola de prioridadLista a partir de una cola existente, 
+	//		un comparador del tipo de dato y la cantidad maxima de elementos
 	ColaPrioridadLista(Puntero<ListaOrd<NodoPQueue<T, P>>> cola, Comparador<T> comparadorDato, nat max);
 public:
 	~ColaPrioridadLista(){}
+	// PRE: -
+	// POS: Crea una cola de prioridadLista a partir de un numero maximo de elementos
+	//		Y los comparadores para el tipo de elemento y la prioridad.
+	//		Si estos no son proveídos se toman los default.
 	ColaPrioridadLista(nat max,
 		Comparador<P> compPrioridad = Comparador<P>::Default,
 		Comparador<T> comparadorDato = Comparador<T>::Default);

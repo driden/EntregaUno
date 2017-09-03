@@ -2,7 +2,7 @@
 #define NODOPQUEUE_H
 
 #include "NodoPQueue.h"
-
+//Clase que modela un Nodo de PQueue, con su Elemento T, Y su prioridad P
 template <class T, class P>
 NodoPQueue<T, P>::NodoPQueue(const T& elem, const P& prio)	
 {

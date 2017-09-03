@@ -11,9 +11,13 @@ private:
 	const ListaOrdMayorAMenor<T> principioLista;
 	nat posicion;
 
+	/// PRE: -
+	/// POS: Crea una nueva instancia de ListaEncadenadaMayorMenorIteracion
 	ListaEncadenadaMayorMenorIteracion(const ListaOrdMayorAMenor<T> listaAIterar, nat posicion);
 public:
 	~ListaEncadenadaMayorMenorIteracion(){}
+	/// PRE: -
+	/// POS: Crea una nueva instancia de ListaEncadenadaMayorMenorIteracion
 	ListaEncadenadaMayorMenorIteracion(const ListaOrdMayorAMenor<T> listaAiterar);
 
 	// PRE:

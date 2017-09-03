@@ -91,14 +91,14 @@ Array<Cadena> Sistema::Split(const Cadena& origen, char delimiter)
 	for (int b = 0; b < static_cast<int>(largo); b++)
 	{
 		actual = validos[b];
-	
-		if (anterior != actual && actual)			
+
+		if (anterior != actual && actual)
 			cantidadArrays++;
-		
+
 		anterior = actual;
 	}
 
-	Array<Cadena> split(cantidadArrays,"");
+	Array<Cadena> split(cantidadArrays, "");
 	int indiceArraySplit = 0;
 	int desde = 0, hasta = 0;
 	for (nat i = 0; i < origen.Largo; i++)
@@ -108,33 +108,35 @@ Array<Cadena> Sistema::Split(const Cadena& origen, char delimiter)
 		else
 		{
 			//Substring
-			split[indiceArraySplit] = origen.SubCadena(desde, hasta - desde +1 );
-			desde = i+1;
+			split[indiceArraySplit] = origen.SubCadena(desde, hasta - desde + 1);
+			desde = i + 1;
 			indiceArraySplit++;
 		}
 	}
-	if (validos[origen.Largo-1] && hasta == (origen.Largo-1))
+	if (validos[origen.Largo - 1] && hasta == (origen.Largo - 1))
 		split[indiceArraySplit] = origen.SubCadena(desde, hasta - desde + 1);
-	
+
 	return split;
 }
 Cadena Sistema::Reverso(const Cadena& origen)
 {
 	Array<Cadena> separado = Split(origen, ' ');
 	Puntero<Pila<Cadena>> pila = new PilaLista<Cadena>(separado.Largo);
-	
-	for (nat k = 0 ; k < separado.Largo ; k++)
+
+	for (nat k = 0; k < separado.Largo; k++)
 	{
 		pila->Push(separado[k]);
 	}
 
 	Iterador<Cadena> iter = pila->ObtenerIterador();
 	Cadena inversa = "";
-	while(iter.HayElemento())
+	while (iter.HayElemento())
 	{
 		inversa += iter.ElementoActual();
-		inversa += " ";
 		iter.Avanzar();
+		if (iter.HayElemento())
+			inversa += " ";
+
 	}
 
 	return inversa;

@@ -14,7 +14,12 @@ private:
 public:
 	~PilaIteracion(){}
 
+	// PRE:
+	// POS: crea una instancia de PilaIteracion
 	PilaIteracion(const PilaArray<T>& pilaArr);
+
+	// PRE:
+	// POS: crea una instancia de PilaIteracion
 	PilaIteracion(const PilaLista<T>& pilaList);
 
 	// PRE:

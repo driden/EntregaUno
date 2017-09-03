@@ -10,9 +10,14 @@ private:
 	const ListaEncadenadaImp<T> principioLista;	
 	nat posicion;
 
+	// PRE: - 
+	// POS: Constructor usado para clonacion, recibe una instancia de ListaEncadenadaImp y una posicion
 	ListaEncadenadaIteracion(const ListaEncadenadaImp<T> listaAIterar, nat posicion);
 public:
 	~ListaEncadenadaIteracion() {}
+	
+	// PRE:
+	// POS: crea una instancia de ListaEncadenadaIteracion, recibe la lista a iterar 
 	ListaEncadenadaIteracion(const ListaEncadenadaImp<T> listaAIterar);
 
 	// PRE:

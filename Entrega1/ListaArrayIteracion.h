@@ -11,11 +11,16 @@ private:
 	const ListaArrayImp<T> lista;
 	nat tope;
 
+	// PRE: -
+	// POS: crea una ListaArrauIteracion conociendo la lista a iterar y el tope que tiene
+	//		Usado para clonar el iterador
 	ListaArrayIteracion(const ListaArrayImp<T> listaOrd, nat tope);
 public:
 	~ListaArrayIteracion(){}
-	ListaArrayIteracion(const ListaArrayImp<T> listaOrd);
-	ListaArrayIteracion();
+	
+	// PRE: 
+	// POS: Crea una nueva instancia de ListaArrayIteracion pasando la ListaArrayImp a iterar
+	ListaArrayIteracion(const ListaArrayImp<T> listaOrd);	
 
 	// PRE:
 	// POS: retorna true si hay un elemento para iterar.
