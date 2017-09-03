@@ -7,8 +7,10 @@ template <class T>
 class ListaEncadenadaIteracion: public Iteracion<T>
 {
 private:
-	const ListaEncadenadaImp<T> principioLista;
+	const ListaEncadenadaImp<T> principioLista;	
 	nat posicion;
+
+	ListaEncadenadaIteracion(const ListaEncadenadaImp<T> listaAIterar, nat posicion);
 public:
 	~ListaEncadenadaIteracion() {}
 	ListaEncadenadaIteracion(const ListaEncadenadaImp<T> listaAIterar);
@@ -31,7 +33,7 @@ public:
 
 	// PRE:
 	// POS: clona la iteracion sin compartir memoria.
-	Puntero<Iteracion<T>> Clonar() const { return nullptr; }
+	Puntero<Iteracion<T>> Clonar() const override;
 
 };
 

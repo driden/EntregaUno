@@ -4,6 +4,13 @@
 #include "ListaEncadenadaIteracion.h"
 
 
+template <class T>
+ListaEncadenadaIteracion<T>::ListaEncadenadaIteracion(const ListaEncadenadaImp<T> listaAIterar, nat posicion)
+{
+	principioLista = listaAIterar;
+	this->posicion = posicion;
+}
+
 template<class T>
 ListaEncadenadaIteracion<T>::ListaEncadenadaIteracion(const ListaEncadenadaImp<T> listaAIterar)
 	:principioLista(listaAIterar)	
@@ -35,6 +42,11 @@ void ListaEncadenadaIteracion<T>::Reiniciar()
 	posicion = 0;
 }
 
+template <class T>
+Puntero<Iteracion<T>> ListaEncadenadaIteracion<T>::Clonar() const
+{
+	return new ListaEncadenadaIteracion(*this);
+}
 
 
 #endif

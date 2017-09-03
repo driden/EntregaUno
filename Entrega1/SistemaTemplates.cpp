@@ -141,7 +141,25 @@ Puntero<ListaOrd<T>> Sistema::CrearListaOrdenadaConArray(const Comparador<T>& co
 template <class T>
 bool Sistema::ListasSonIguales(const Puntero<ListaOrd<T>>& lista1, const Puntero<ListaOrd<T>>& lista2, const Comparador<T>& comp)
 {
-	return false;
+	Iterador<T> itLista1 = lista1->ObtenerIterador();
+	Iterador<T> itLista2 = lista2->ObtenerIterador();
+
+	while (itLista1.HayElemento())
+	{
+		if (!itLista2.HayElemento())
+			return false;
+
+		if (!comp.SonIguales(itLista1.ElementoActual(), itLista2.ElementoActual()))
+			return false;
+
+		itLista1.Avanzar();
+		itLista2.Avanzar();
+	}
+
+	if (!itLista1.HayElemento() && itLista2.HayElemento())
+		return false;
+
+	return true;
 }
 
 // Operación 6: Tad Cola de Prioridad

@@ -2,6 +2,7 @@
 #define LISTAARRAYIMP_CPP
 
 #include "ListaArrayImp.h"
+#include "ListaArrayIteracion.h"
 
 template <class T>
 ListaArrayImp<T>::ListaArrayImp(const nat& tamanio, Comparador<T> comp)
@@ -35,13 +36,19 @@ void ListaArrayImp<T>::InsertarOrdenado(const T& e)
 
 	// recorro el array al reves y voy moviendo los items a la derecha
 	tope++;
-	int i = tope;
-	while (i > 0 && comparador.EsMayor(e, lista[i]))
+	if (tope > 0)
 	{
-		lista[i + 1] = lista[i];
-		i--;
+		int i = tope;
+		while (i > 0 && comparador.EsMayor(e, lista[i]))
+		{
+			lista[i] = lista[i-1];
+			i--;
+		}
+		lista[i] = e;
+	}else
+	{
+		lista[0] = e;
 	}
-	lista[i] = e;
 }
 
 template <class T>
@@ -54,13 +61,13 @@ template <class T>
 void ListaArrayImp<T>::Eliminar(const T& e)
 {
 	int indiceE = -1;
-	for(nat i = 0; i < lista.Largo;i++)
+	for (nat i = 0; i < lista.Largo; i++)
 	{
 		if (comparador.SonIguales(lista[i], e))
 			indiceE = i;
 	}
 
-	for (nat j = static_cast<nat>(indiceE); j < lista.Largo  ; j--)
+	for (nat j = static_cast<nat>(indiceE); j < lista.Largo; j--)
 	{
 		lista[j] = lista[j + 1];
 	}
@@ -109,13 +116,13 @@ ListaArrayImp<T>::ListaArrayImp(nat size, Array<T> arr, int tope, const Comparad
 template <class T>
 Iterador<T> ListaArrayImp<T>::ObtenerIterador() const
 {
-	return nullptr;
+	return new ListaArrayIteracion<T>(*this);
 }
 template <class T>
 int ListaArrayImp<T>::IndexOf(const T& e) const
 {
 	int indiceE = -1;
-	for (nat i = 0; i< lista.Largo; i++)
+	for (nat i = 0; i < lista.Largo; i++)
 	{
 		if (comparador.SonIguales(lista[i], e))
 			indiceE = i;
